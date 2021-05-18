@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.shu.xj.ser.mapper.AssMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="adminResultMap" type="cn.edu.shu.xj.ser.entity.Ass">
+        <result column="ass_id" property="ass_id"/>
+        <result column="ass_name" property="ass_name"/>
+        <result column="ass_positon" property="ass_positon"/>
+        <result column="ass_capital" property="ass_capital"/>
+        <result column="ass_teacher" property="ass_teacher"/>
+    </resultMap>
+
+
+
+</mapper>

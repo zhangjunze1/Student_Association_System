@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.shu.xj.ser.mapper.MemberAssMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="adminResultMap" type="cn.edu.shu.xj.ser.entity.MemberAss">
+        <result column="member_ass_id" property="member_ass_id"/>
+        <result column="user_id" property="user_id"/>
+        <result column="ass_id " property="ass_id"/>
+    </resultMap>
+
+
+
+</mapper>

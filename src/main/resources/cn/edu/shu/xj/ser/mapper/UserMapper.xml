@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.shu.xj.ser.mapper.UserMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="adminResultMap" type="cn.edu.shu.xj.ser.entity.User">
+        <result column="user_id" property="user_id"/>
+        <result column="user_name" property="user_name"/>
+        <result column="user_true_name " property="user_true_name"/>
+        <result column="user_pwd " property="user_pwd"/>
+        <result column="user_authority " property="user_authority"/>
+        <result column="user_score " property="user_score"/>
+        <result column="user_number " property="user_number"/>
+        <result column="user_gender " property="user_gender"/>
+        <result column="user_position " property="user_position"/>
+        <result column="user_token " property="user_token"/>
+        <result column="user_pic " property="user_pic"/>
+
+    </resultMap>
+    <select id="findUserById" resultType="cn.edu.shu.xj.ser.entity.User">
+        select *
+        from user
+        where user_id=#{user_id}
+    </select>
+
+
+</mapper>

@@ -25,4 +25,6 @@ public class Ass {
     private String ass_capital;
     // 社团指导老师
     private String ass_teacher;
+    // 社团公告
+    private String ass_notice;
 }

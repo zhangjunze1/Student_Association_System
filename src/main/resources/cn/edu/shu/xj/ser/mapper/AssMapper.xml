@@ -8,6 +8,7 @@
         <result column="ass_positon" property="ass_positon"/>
         <result column="ass_capital" property="ass_capital"/>
         <result column="ass_teacher" property="ass_teacher"/>
+        <result column="ass_notice" property="ass_notice"/>
     </resultMap>
 
 

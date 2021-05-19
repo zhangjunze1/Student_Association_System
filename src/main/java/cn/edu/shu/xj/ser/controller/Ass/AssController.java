@@ -1,5 +1,6 @@
 package cn.edu.shu.xj.ser.controller.Ass;
 
+import cn.edu.shu.xj.ser.entity.Ass;
 import cn.edu.shu.xj.ser.response.Result;
 import cn.edu.shu.xj.ser.service.impl.ActivityService;
 import cn.edu.shu.xj.ser.service.impl.AssService;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @Api(tags = "社团接口")
 @RestController
@@ -33,6 +36,13 @@ public class AssController {
         Integer assNum = assService.count();
         Integer memberNum = userService.count();
         return Result.ok().data("memberNum",memberNum).data("assNum",assNum).data("activityNum",activityNum);
+    }
+
+    @ApiOperation(value = "获取社团列表")
+    @GetMapping("/findAssList")
+    public Result findAssList(){
+        List<Ass> asses = assService.getAssList();
+        return Result.ok().data("Ass",asses);
     }
 
 }

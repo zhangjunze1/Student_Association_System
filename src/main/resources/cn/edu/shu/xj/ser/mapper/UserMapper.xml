@@ -32,10 +32,46 @@
         from user
         where user_name = #{userName}
     </select>
+
     <select id="findUserByNumber" resultType="cn.edu.shu.xj.ser.entity.User">
         select *
         from user
         where user_number = #{userNumber}
+    </select>
+
+    <select id="findAuthorityAndCount" resultType="cn.edu.shu.xj.ser.entity.User">
+        select count(*) as userCount,user_position as userPosition
+        from user
+        group by userPosition
+
+    </select>
+
+    <select id="findUserListTotal" resultType="java.lang.Integer">
+        select count(*)
+        from user , member_ass ,ass
+        where user.user_id = member_ass.user_id and ass.ass_id = member_ass.ass_id
+        AND user_true_name LIKE "%"#{userTrueName}"%" AND ass_name LIKE "%"#{assName}"%" AND user_position like "%"#{position}"%"
+    </select>
+
+    <select id="findUserListTotalWithNoAss" resultType="java.lang.Integer">
+        select count(*)
+        from user
+        where user_true_name LIKE "%"#{userTrueName}"%"  AND user_position like "%"#{position}"%"
+    </select>
+
+    <select id="queryUserList" resultType="cn.edu.shu.xj.ser.entity.User">
+        select user.*
+        from user , member_ass ,ass
+        where user.user_id = member_ass.user_id and ass.ass_id = member_ass.ass_id
+        AND user_true_name LIKE "%"#{userTrueName}"%" AND ass_name LIKE "%"#{assName}"%" AND user_position like "%"#{position}"%"
+        limit #{Myvalue},#{size}
+    </select>
+
+    <select id="queryUserListWithNoAss" resultType="cn.edu.shu.xj.ser.entity.User">
+        select user.*
+        from user
+        where user_true_name LIKE "%"#{userTrueName}"%"  AND user_position like "%"#{position}"%"
+        limit #{Myvalue},#{size}
     </select>
 
 

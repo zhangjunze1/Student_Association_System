@@ -10,6 +10,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("userService")
 public class UserService extends ServiceImpl<UserMapper, User> implements IUserService {
 
@@ -35,5 +37,30 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     @Override
     public void userRegister(String userName, String userTrueName, String userPwd, Integer userAuthority, Integer userScore, String userNumber, String userGender, String userPosition, String userPhone) {
         userMapper.userRegister(userName, userTrueName, userPwd, userAuthority, userScore, userNumber, userGender, userPosition, userPhone);
+    }
+
+    @Override
+    public List<User> findAuthorityAndCount() {
+        return userMapper.findAuthorityAndCount();
+    }
+
+    @Override
+    public Integer findUserListTotal(String userTrueName, String assName, String position) {
+        return userMapper.findUserListTotal(userTrueName, assName, position);
+    }
+
+    @Override
+    public Integer findUserListTotalWithNoAss(String userTrueName, String position) {
+        return userMapper.findUserListTotalWithNoAss(userTrueName, position);
+    }
+
+    @Override
+    public List<User> queryUserList(String userTrueName, String assName, String position, Integer Myvalue, Integer size) {
+        return userMapper.queryUserList(userTrueName, assName, position, Myvalue, size);
+    }
+
+    @Override
+    public List<User> queryUserListWithNoAss(String userTrueName, String position, Integer Myvalue, Integer size) {
+        return userMapper.queryUserListWithNoAss(userTrueName, position, Myvalue, size);
     }
 }

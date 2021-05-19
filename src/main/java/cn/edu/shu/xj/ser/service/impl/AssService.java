@@ -7,10 +7,16 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("assService")
 public class AssService extends ServiceImpl<AssMapper, Ass> implements IAssService {
 
     @Autowired
     AssMapper assMapper;
 
+    @Override
+    public List<Ass> getAssList() {
+        return assMapper.getAssList();
+    }
 }

@@ -58,6 +58,10 @@ public enum ResultCode implements CustomizeResultCode{
      */
     ERROR_PWD(3018,"用户密码输入错误"),
     /**
+     * 3019:"当前没有任何用户使用本软件"
+     */
+    NO_USER_AUTHORITY(3019,"当前没有任何用户使用本软件"),
+    /**
      *  2001:未知异常
      */
     UNKNOW_SERVER_ERROR(2001, "未知异常,请联系管理员!");

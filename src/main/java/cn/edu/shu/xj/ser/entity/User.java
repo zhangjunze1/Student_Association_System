@@ -1,6 +1,7 @@
 package cn.edu.shu.xj.ser.entity;
 
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -40,4 +41,7 @@ public class User {
     private String userPic;
     // 用户电话
     private String userPhone;
+
+    @TableField(exist = false)
+    private Integer userCount;
 }

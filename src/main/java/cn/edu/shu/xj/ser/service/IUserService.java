@@ -4,6 +4,8 @@ package cn.edu.shu.xj.ser.service;
 import cn.edu.shu.xj.ser.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 public interface IUserService extends IService<User> {
 
     /**
@@ -41,4 +43,47 @@ public interface IUserService extends IService<User> {
      */
     void userRegister(String userName,String userTrueName,String userPwd,Integer userAuthority,Integer userScore,String userNumber,String userGender,String userPosition,String userPhone);
 
+    /**
+     * 查找对应权限的人数
+     * @return
+     */
+    List<User> findAuthorityAndCount();
+
+    /**
+     * 查询满足条件的用户数目
+     * @param userTrueName
+     * @param assName
+     * @param position
+     * @return
+     */
+    Integer findUserListTotal(String userTrueName,String assName,String position);
+
+    /**
+     * 查询满足条件 无社团的用户数目
+     * @param userTrueName
+     * @param position
+     * @return
+     */
+    Integer findUserListTotalWithNoAss(String userTrueName,String position);
+
+    /**
+     * 条件分页查询 用户的信息
+     * @param userTrueName
+     * @param assName
+     * @param position
+     * @param Myvalue
+     * @param size
+     * @return
+     */
+    List<User> queryUserList(String userTrueName,String assName,String position, Integer Myvalue,Integer size);
+
+    /**
+     * 条件分页查询 无社团的用户数目
+     * @param userTrueName
+     * @param position
+     * @param Myvalue
+     * @param size
+     * @return
+     */
+    List<User> queryUserListWithNoAss(String userTrueName,String position, Integer Myvalue,Integer size);
 }

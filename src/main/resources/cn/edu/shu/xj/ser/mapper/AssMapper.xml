@@ -10,7 +10,10 @@
         <result column="ass_teacher" property="assTeacher"/>
         <result column="ass_notice" property="assNotice"/>
     </resultMap>
-
+    <select id="getAssList" resultType="cn.edu.shu.xj.ser.entity.Ass">
+        select *
+        from ass
+    </select>
 
 
 </mapper>

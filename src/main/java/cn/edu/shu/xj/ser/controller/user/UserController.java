@@ -9,10 +9,9 @@ import cn.edu.shu.xj.ser.service.impl.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Api(tags = "用户接口")
 @RestController
@@ -49,7 +48,7 @@ public class UserController {
             throw new BusinessException(ResultCode.USER_REGISTER_REPEAT.getCode(),
                     ResultCode.USER_REGISTER_REPEAT.getMessage());
         }
-        String user_position = "成员";
+        String user_position = "社员";
         userService.userRegister(userName,userTrueName,userPwd,0,0,userNumber,userGender,user_position,userPhone);
         User nowUser = null;
         nowUser = userService.findUserByNumber(userNumber);
@@ -82,5 +81,41 @@ public class UserController {
         }else {
             return Result.error();
         }
+    }
+
+
+    @ApiOperation(value = "查找对应权限的人数")
+    @GetMapping("/findAuthorityAndCount")
+    public Result findAuthorityAndCount(){
+        List<User> AuthorityAndCount = userService.findAuthorityAndCount();
+        if (AuthorityAndCount.size()==0){
+            throw new BusinessException(ResultCode.NO_USER_AUTHORITY.getCode(),
+                    ResultCode.NO_USER_AUTHORITY.getMessage());
+        }
+        return Result.ok().data("AuthorityAndCount",AuthorityAndCount);
+    }
+
+
+    @ApiOperation(value = "条件查询用户列表")
+    @GetMapping("/findqueryUserList")
+    public Result findqueryUserList(@RequestParam(required = true,defaultValue = "1")Integer current,
+                                    @RequestParam(required = true,defaultValue = "10")Integer size,
+                                    @RequestParam(required = true)String userTrueName,
+                                    @RequestParam(required = true)String assName,
+                                    @RequestParam(required = true)String position){
+        //对用户进行分页，泛型中注入的就是用户实体类
+        Integer Myvalue;
+        Integer Total;
+        List<User> userList=null;
+        if (!assName.equals("")){
+            Total = userService.findUserListTotal(userTrueName,assName,position);
+            Myvalue= (current-1)*size;
+            userList = userService.queryUserList(userTrueName,assName,position,Myvalue,size);
+        }else {
+            Total = userService.findUserListTotalWithNoAss(userTrueName,position);
+            Myvalue = (current-1)*size;
+            userList = userService.queryUserListWithNoAss(userTrueName,position,Myvalue,size);
+        }
+        return Result.ok().data("total",Total).data("userList",userList);
     }
 }

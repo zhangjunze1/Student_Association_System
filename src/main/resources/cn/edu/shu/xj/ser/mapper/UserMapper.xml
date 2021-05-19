@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.shu.xj.ser.mapper.UserMapper">
     <!-- 通用查询映射结果 -->
-    <resultMap id="adminResultMap" type="cn.edu.shu.xj.ser.entity.User">
+    <resultMap id="userResultMap" type="cn.edu.shu.xj.ser.entity.User">
         <result column="user_id" property="user_id"/>
         <result column="user_name" property="user_name"/>
         <result column="user_true_name " property="user_true_name"/>
@@ -14,12 +14,21 @@
         <result column="user_position " property="user_position"/>
         <result column="user_token " property="user_token"/>
         <result column="user_pic " property="user_pic"/>
-
+        <result column="user_phone " property="user_phone"/>
     </resultMap>
-    <select id="findUserById" resultType="cn.edu.shu.xj.ser.entity.User">
+    <insert id="userRegister">
+        insert into user(user_name,user_true_name,user_pwd,user_authority,user_score,user_number,user_gender,user_position,user_phone)
+        values(#{name},#{true_name},#{pwd},#{authority},#{score},#{number},#{gender},#{position},#{phone})
+    </insert>
+    <select id="findUserById" resultMap="userResultMap">
         select *
         from user
         where user_id=#{user_id}
+    </select>
+    <select id="findUserByName" resultMap="userResultMap">
+        select *
+        from user
+        where user_name = #{user_name}
     </select>
 
 

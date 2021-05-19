@@ -10,4 +10,8 @@ public interface UserMapper extends BaseMapper<User> {
 
     User findUserById(Long user_id);
 
+    User findUserByName(String user_name);
+
+    void userRegister(String name,String true_name,String pwd,Integer authority,Integer score,String number,String gender,String position,String phone);
+
 }

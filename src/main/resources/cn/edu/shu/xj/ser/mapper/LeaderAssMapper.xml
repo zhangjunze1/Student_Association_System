@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.shu.xj.ser.mapper.LeaderAssMapper">
     <!-- 通用查询映射结果 -->
-    <resultMap id="adminResultMap" type="cn.edu.shu.xj.ser.entity.LeaderAss">
+    <resultMap id="LeaderAssResultMap" type="cn.edu.shu.xj.ser.entity.LeaderAss">
         <result column="leader_ass_id" property="leader_ass_id"/>
         <result column="ass_id" property="ass_id"/>
         <result column="user_id " property="user_id"/>

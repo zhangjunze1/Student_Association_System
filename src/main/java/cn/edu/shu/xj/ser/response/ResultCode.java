@@ -38,6 +38,23 @@ public enum ResultCode implements CustomizeResultCode{
      */
     ERROR_USER_PWD(3013,"用户输入密码错误"),
     /**
+     * 3014:"用户名已被占用"
+     */
+    USER_REGISTER_REPEAT(3014,"用户名已被占用"),
+    /**
+     * 3015:"密码注册不相同"
+     */
+    USER_PWD_DIFFERENT(3015,"密码注册两次输入不相同"),
+    /**
+     * 3016:"性别不能为空"
+     */
+    USER_GENDER_NULL(3016,"性别不能为空"),
+    /**
+     * 3017:"用户注册失败"
+     */
+    ERROR_USER_REGISTER(3017,"用户注册失败"),
+
+    /**
      *  2001:未知异常
      */
     UNKNOW_SERVER_ERROR(2001, "未知异常,请联系管理员!");

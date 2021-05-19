@@ -38,4 +38,6 @@ public class User {
     private String user_token;
     // 用户头像
     private String user_pic;
+    // 用户电话
+    private String user_phone;
 }

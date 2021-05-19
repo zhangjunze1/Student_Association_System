@@ -20,4 +20,14 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     public User findUserById(Long user_id) {
         return userMapper.findUserById(user_id);
     }
+
+    @Override
+    public User findUserByName(String user_name) {
+        return userMapper.findUserByName(user_name);
+    }
+
+    @Override
+    public void userRegister(String name, String true_name, String pwd, Integer authority, Integer score, String number, String gender, String position, String phone) {
+        userMapper.userRegister(name, true_name, pwd, authority, score, number, gender, position, phone);
+    }
 }

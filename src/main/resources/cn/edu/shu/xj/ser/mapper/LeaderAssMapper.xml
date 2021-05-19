@@ -3,9 +3,9 @@
 <mapper namespace="cn.edu.shu.xj.ser.mapper.LeaderAssMapper">
     <!-- 通用查询映射结果 -->
     <resultMap id="LeaderAssResultMap" type="cn.edu.shu.xj.ser.entity.LeaderAss">
-        <result column="leader_ass_id" property="leader_ass_id"/>
-        <result column="ass_id" property="ass_id"/>
-        <result column="user_id " property="user_id"/>
+        <result column="leader_ass_id" property="leaderAssId"/>
+        <result column="ass_id" property="assId"/>
+        <result column="user_id " property="userId"/>
     </resultMap>
 
 

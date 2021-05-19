@@ -16,15 +16,15 @@ import lombok.NoArgsConstructor;
 public class Ass {
 
     @TableId
-    private Long ass_id;
+    private Long assId;
     // 社团名字
-    private String ass_name;
+    private String assName;
     // 社团所在教室
-    private String ass_positon;
+    private String assPositon;
     // 社团经费
-    private String ass_capital;
+    private String assCapital;
     // 社团指导老师
-    private String ass_teacher;
+    private String assTeacher;
     // 社团公告
-    private String ass_notice;
+    private String assNotice;
 }

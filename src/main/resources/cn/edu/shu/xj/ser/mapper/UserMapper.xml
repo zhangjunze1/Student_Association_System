@@ -3,32 +3,39 @@
 <mapper namespace="cn.edu.shu.xj.ser.mapper.UserMapper">
     <!-- 通用查询映射结果 -->
     <resultMap id="userResultMap" type="cn.edu.shu.xj.ser.entity.User">
-        <result column="user_id" property="user_id"/>
-        <result column="user_name" property="user_name"/>
-        <result column="user_true_name " property="user_true_name"/>
-        <result column="user_pwd " property="user_pwd"/>
-        <result column="user_authority " property="user_authority"/>
-        <result column="user_score " property="user_score"/>
-        <result column="user_number " property="user_number"/>
-        <result column="user_gender " property="user_gender"/>
-        <result column="user_position " property="user_position"/>
-        <result column="user_token " property="user_token"/>
-        <result column="user_pic " property="user_pic"/>
-        <result column="user_phone " property="user_phone"/>
+        <result column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_true_name " property="userTrueName"/>
+        <result column="user_pwd " property="userPwd"/>
+        <result column="user_authority " property="userAuthority"/>
+        <result column="user_score " property="userScore"/>
+        <result column="user_number " property="userNumber"/>
+        <result column="user_gender " property="userGender"/>
+        <result column="user_position " property="userPosition"/>
+        <result column="user_token " property="userToken"/>
+        <result column="user_pic " property="userPic"/>
+        <result column="user_phone " property="userPhone"/>
     </resultMap>
     <insert id="userRegister">
         insert into user(user_name,user_true_name,user_pwd,user_authority,user_score,user_number,user_gender,user_position,user_phone)
-        values(#{name},#{true_name},#{pwd},#{authority},#{score},#{number},#{gender},#{position},#{phone})
+        values(#{userName},#{userTrueName},#{userPwd},#{userAuthority},#{userScore},#{userNumber},#{userGender},#{userPosition},#{userPhone})
     </insert>
+
     <select id="findUserById" resultMap="userResultMap">
         select *
         from user
-        where user_id=#{user_id}
+        where user_id=#{userId}
     </select>
+
     <select id="findUserByName" resultMap="userResultMap">
         select *
         from user
-        where user_name = #{user_name}
+        where user_name = #{userName}
+    </select>
+    <select id="findUserByNumber" resultMap="userResultMap">
+        select *
+        from user
+        where user_number = #{userNumber}
     </select>
 
 

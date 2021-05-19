@@ -8,10 +8,12 @@ import org.springframework.stereotype.Component;
 @Component
 public interface UserMapper extends BaseMapper<User> {
 
-    User findUserById(Long user_id);
+    User findUserById(Long userId);
 
-    User findUserByName(String user_name);
+    User findUserByName(String userName);
 
-    void userRegister(String name,String true_name,String pwd,Integer authority,Integer score,String number,String gender,String position,String phone);
+    User findUserByNumber(String userNumber);
+
+    void userRegister(String userName,String userTrueName,String userPwd,Integer userAuthority,Integer userScore,String userNumber,String userGender,String userPosition,String userPhone);
 
 }

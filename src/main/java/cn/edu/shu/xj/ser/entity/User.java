@@ -17,27 +17,27 @@ import lombok.NoArgsConstructor;
 public class User {
     @TableId
     // 用户编号
-    private Long user_id;
+    private Long userId;
     // 用户网名
-    private String user_name;
+    private String userName;
     // 用户真实姓名
-    private String user_true_name;
+    private String userTrueName;
     // 用户密码
-    private String user_pwd;
+    private String userPwd;
     // 用户权限 2成员 1社长 0管理员
-    private Integer user_authority;
+    private Integer userAuthority;
     // 用户积分值
-    private Integer user_score;
+    private Integer userScore;
     // 用户学号
-    private String user_number;
+    private String userNumber;
     // 用户性别 (男/女)
-    private String user_gender;
+    private String userGender;
     // 用户职位(社长、副社长、成员)
-    private String user_position;
+    private String userPosition;
     // token
-    private String user_token;
+    private String userToken;
     // 用户头像
-    private String user_pic;
+    private String userPic;
     // 用户电话
-    private String user_phone;
+    private String userPhone;
 }

@@ -3,9 +3,9 @@
 <mapper namespace="cn.edu.shu.xj.ser.mapper.UserActivityMapper">
     <!-- 通用查询映射结果 -->
     <resultMap id="UserActivityResultMap" type="cn.edu.shu.xj.ser.entity.UserActivity">
-        <result column="user_activity_id" property="user_activity_id"/>
-        <result column="activity_id" property="activity_id"/>
-        <result column="user_id " property="user_id"/>
+        <result column="user_activity_id" property="userActivityId"/>
+        <result column="activity_id" property="activityId"/>
+        <result column="user_id " property="userId"/>
     </resultMap>
 
 

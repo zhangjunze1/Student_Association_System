@@ -17,10 +17,10 @@ import lombok.NoArgsConstructor;
 public class LeaderActivity {
     @TableId
     // 发起人和活动关系编号
-    private Long leader_activity_id;
+    private Long leaderActivityId;
     // 发起人编号
-    private Long user_id;
+    private Long userId;
     // 活动编号
-    private Long activity_id;
+    private Long activityId;
 
 }

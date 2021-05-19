@@ -3,9 +3,9 @@
 <mapper namespace="cn.edu.shu.xj.ser.mapper.NoticeMapper">
     <!-- 通用查询映射结果 -->
     <resultMap id="NoticeResultMap" type="cn.edu.shu.xj.ser.entity.Notice">
-        <result column="notice_id" property="notice_id"/>
-        <result column="notice_content" property="notice_content"/>
-        <result column="notice_pic " property="notice_pic"/>
+        <result column="notice_id" property="noticId"/>
+        <result column="notice_content" property="noticeContent"/>
+        <result column="notice_pic " property="noticePic"/>
     </resultMap>
 
 

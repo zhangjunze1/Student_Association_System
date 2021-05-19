@@ -17,10 +17,10 @@ import lombok.NoArgsConstructor;
 public class Notice {
     @TableId
     // 公告编号
-    private Long notice_id;
+    private Long noticId;
     // 公告内容
-    private String notice_content;
+    private String noticeContent;
     // 公告图片
-    private String notice_pic;
+    private String noticePic;
 
 }

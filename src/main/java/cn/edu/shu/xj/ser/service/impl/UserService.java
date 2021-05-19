@@ -16,18 +16,24 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     @Autowired
     UserMapper userMapper;
 
+
     @Override
-    public User findUserById(Long user_id) {
-        return userMapper.findUserById(user_id);
+    public User findUserById(Long userId) {
+        return userMapper.findUserById(userId);
     }
 
     @Override
-    public User findUserByName(String user_name) {
-        return userMapper.findUserByName(user_name);
+    public User findUserByName(String userName) {
+        return userMapper.findUserByName(userName);
     }
 
     @Override
-    public void userRegister(String name, String true_name, String pwd, Integer authority, Integer score, String number, String gender, String position, String phone) {
-        userMapper.userRegister(name, true_name, pwd, authority, score, number, gender, position, phone);
+    public User findUserByNumber(String userNumber) {
+        return userMapper.findUserByNumber(userNumber);
+    }
+
+    @Override
+    public void userRegister(String userName, String userTrueName, String userPwd, Integer userAuthority, Integer userScore, String userNumber, String userGender, String userPosition, String userPhone) {
+        userMapper.userRegister(userName, userTrueName, userPwd, userAuthority, userScore, userNumber, userGender, userPosition, userPhone);
     }
 }

@@ -16,8 +16,8 @@ public class TokenService implements ITokenService {
 
     public String getToken(User user) {
         String token="";
-        token= JWT.create().withAudience(String.valueOf(user.getUser_id()))
-                .sign(Algorithm.HMAC256(user.getUser_pwd()));
+        token= JWT.create().withAudience(String.valueOf(user.getUserId()))
+                .sign(Algorithm.HMAC256(user.getUserPwd()));
         return token;
     }
 

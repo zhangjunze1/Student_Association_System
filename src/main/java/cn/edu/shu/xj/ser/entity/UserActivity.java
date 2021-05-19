@@ -16,9 +16,9 @@ import lombok.NoArgsConstructor;
 public class UserActivity {
     @TableId
     // 用户和活动关系编号
-    private Long user_activity_id;
+    private Long userActivityId;
     // 活动编号
-    private Long activity_id;
+    private Long activityId;
     // 用户编号
-    private Long user_id;
+    private Long userId;
 }

@@ -3,12 +3,12 @@
 <mapper namespace="cn.edu.shu.xj.ser.mapper.AssMapper">
     <!-- 通用查询映射结果 -->
     <resultMap id="AssResultMap" type="cn.edu.shu.xj.ser.entity.Ass">
-        <result column="ass_id" property="ass_id"/>
-        <result column="ass_name" property="ass_name"/>
-        <result column="ass_positon" property="ass_positon"/>
-        <result column="ass_capital" property="ass_capital"/>
-        <result column="ass_teacher" property="ass_teacher"/>
-        <result column="ass_notice" property="ass_notice"/>
+        <result column="ass_id" property="assId"/>
+        <result column="ass_name" property="assName"/>
+        <result column="ass_positon" property="assPositon"/>
+        <result column="ass_capital" property="assCapital"/>
+        <result column="ass_teacher" property="assTeacher"/>
+        <result column="ass_notice" property="assNotice"/>
     </resultMap>
 
 

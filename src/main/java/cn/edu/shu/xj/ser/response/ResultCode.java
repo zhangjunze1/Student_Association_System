@@ -38,9 +38,9 @@ public enum ResultCode implements CustomizeResultCode{
      */
     ERROR_USER_PWD(3013,"用户输入密码错误"),
     /**
-     * 3014:"用户名已被占用"
+     * 3014:"学号被占用"
      */
-    USER_REGISTER_REPEAT(3014,"用户名已被占用"),
+    USER_REGISTER_REPEAT(3014,"学号被占用"),
     /**
      * 3015:"密码注册不相同"
      */

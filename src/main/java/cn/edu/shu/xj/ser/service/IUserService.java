@@ -8,31 +8,37 @@ public interface IUserService extends IService<User> {
 
     /**
      * 根据user_id查找User实体类
-     * @param user_id
+     * @param userId
      * @return
      */
-    User findUserById(Long user_id);
+    User findUserById(Long userId);
 
     /**
      * 根据用户名查找User
-     * @param user_name
+     * @param userName
      * @return
      */
-    User findUserByName(String user_name);
+    User findUserByName(String userName);
+
+    /**
+     * 根据学号查找User
+     * @param userNumber
+     * @return
+     */
+    User findUserByNumber(String userNumber);
 
     /**
      * 用户注册
-     * @param name
-     * @param true_name
-     * @param pwd
-     * @param authority
-     * @param score
-     * @param number
-     * @param gender
-     * @param position
-     * @param phone
-     * @return
+     * @param userName
+     * @param userTrueName
+     * @param userPwd
+     * @param userAuthority
+     * @param userScore
+     * @param userNumber
+     * @param userGender
+     * @param userPosition
+     * @param userPhone
      */
-    void userRegister(String name,String true_name,String pwd,Integer authority,Integer score,String number,String gender,String position,String phone);
+    void userRegister(String userName,String userTrueName,String userPwd,Integer userAuthority,Integer userScore,String userNumber,String userGender,String userPosition,String userPhone);
 
 }

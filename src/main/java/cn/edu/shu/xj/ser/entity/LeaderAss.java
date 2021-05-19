@@ -17,9 +17,9 @@ import lombok.NoArgsConstructor;
 public class LeaderAss {
     @TableId
     // 关系编号
-    private Long leader_ass_id;
+    private Long leaderAssId;
     // 社团编号
-    private Long ass_id;
+    private Long assId;
     // 社长编号
-    private Long user_id;
+    private Long userId;
 }

@@ -17,9 +17,9 @@ import lombok.NoArgsConstructor;
 public class AssActivity {
     @TableId
     // 社团和活动关系编号
-    private Long ass_activity_id;
+    private Long assActivityId;
     // 活动编号
-    private Long activity_id;
+    private Long activityId;
     // 社团编号
-    private Long ass_id;
+    private Long assId;
 }

@@ -3,15 +3,15 @@
 <mapper namespace="cn.edu.shu.xj.ser.mapper.ActivityMapper">
     <!-- 通用查询映射结果 -->
     <resultMap id="ActivityResultMap" type="cn.edu.shu.xj.ser.entity.Activity">
-        <result column="activity_id" property="activity_id"/>
-        <result column="activity_sub" property="activity_sub"/>
-        <result column="activity_content" property="activity_content"/>
-        <result column="activity_url" property="activity_url"/>
-        <result column="activity_start_time" property="activity_start_time"/>
-        <result column="activity_finish_time" property="activity_finish_time"/>
-        <result column="activity_state" property="activity_state"/>
-        <result column="activity_score" property="activity_score"/>
-        <result column="activity_leader_name" property="activity_leader_name"/>
+        <result column="activity_id" property="activityId"/>
+        <result column="activity_sub" property="activitySub"/>
+        <result column="activity_content" property="activityContent"/>
+        <result column="activity_url" property="activityUrl"/>
+        <result column="activity_start_time" property="activityStartTime"/>
+        <result column="activity_finish_time" property="activityFinishTime"/>
+        <result column="activity_state" property="activityState"/>
+        <result column="activity_score" property="activityScore"/>
+        <result column="activity_leader_name" property="activityLeaderName"/>
     </resultMap>
 
 

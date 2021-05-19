@@ -23,21 +23,21 @@ public class UserController {
 
     @ApiOperation(value = "注册用户")
     @PostMapping("/userRegister")
-    public Result userRegister(@RequestParam("name")String name,
-                               @RequestParam("true_name")String true_name,
-                               @RequestParam("pwd")String pwd,
-                               @RequestParam("repwd")String repwd,
-                               @RequestParam("phone")String phone,
-                               @RequestParam("number")String number,
-                               @RequestParam("gender")String gender
+    public Result userRegister(@RequestParam("name")String userName,
+                               @RequestParam("true_name")String userTrueName,
+                               @RequestParam("pwd")String userPwd,
+                               @RequestParam("repwd")String userRepwd,
+                               @RequestParam("phone")String userPhone,
+                               @RequestParam("number")String userNumber,
+                               @RequestParam("gender")String userGender
     ){
         User user = new User();
-        user = userService.findUserByName(name);
-        if (!pwd.equals(repwd)){
+        user = userService.findUserByNumber(userNumber);
+        if (!userPwd.equals(userRepwd)){
             throw new BusinessException(ResultCode.USER_PWD_DIFFERENT.getCode(),
                     ResultCode.USER_PWD_DIFFERENT.getMessage());
         }
-        if (gender==null){
+        if (userGender==""){
             throw new BusinessException(ResultCode.USER_GENDER_NULL.getCode(),
                     ResultCode.USER_GENDER_NULL.getMessage());
         }
@@ -45,15 +45,16 @@ public class UserController {
             throw new BusinessException(ResultCode.USER_REGISTER_REPEAT.getCode(),
                     ResultCode.USER_REGISTER_REPEAT.getMessage());
         }
-        String position = "成员";
-        userService.userRegister(name,true_name,pwd,0,0,number,gender,position,phone);
-        User nowUser = new User();
-        nowUser = userService.findUserByName(name);
+        String user_position = "成员";
+        userService.userRegister(userName,userTrueName,userPwd,0,0,userNumber,userGender,user_position,userPhone);
+        User nowUser = null;
+        nowUser = userService.findUserByNumber(userNumber);
+        System.out.println(nowUser);
         if (nowUser==null){
             throw new BusinessException(ResultCode.ERROR_USER_REGISTER.getCode(),
                     ResultCode.ERROR_USER_REGISTER.getMessage());
         }else
-            return Result.ok().data("user",user);
+            return Result.ok().data("user",nowUser);
     }
 
 }

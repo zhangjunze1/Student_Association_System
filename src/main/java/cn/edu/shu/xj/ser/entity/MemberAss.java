@@ -16,10 +16,10 @@ import lombok.NoArgsConstructor;
 public class MemberAss {
     @TableId
     // 成员和社团关系编号
-    private Long member_ass_id;
+    private Long memberAssId;
     // 成员编号
-    private Long user_id;
+    private Long userId;
     // 社团编号
-    private Long ass_id;
+    private Long assId;
 
 }

@@ -19,23 +19,23 @@ import java.sql.Timestamp;
 @TableName("activity")
 public class Activity {
     @TableId
-    private Long activity_id;
+    private Long activityId;
     // 活动主题
-    private String activity_sub;
+    private String activitySub;
     // 活动内容
-    private String activity_content;
+    private String activityContent;
     // 活动图片url
-    private String activity_url;
+    private String activityUrl;
     // 活动开始时间
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-    private Timestamp activity_start_time;
+    private Timestamp activityStartTime;
     // 活动结束时间
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-    private Timestamp activity_finish_time;
+    private Timestamp activityFinishTime;
     // 活动状态(审核中、已通过)
-    private String activity_state;
+    private String activityState;
     // 本次活动分值
-    private String activity_score;
+    private String activityScore;
     // 活动发起人
-    private String activity_leader_name;
+    private String activityLeaderName;
 }

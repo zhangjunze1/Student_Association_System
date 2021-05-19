@@ -30,9 +30,9 @@ public enum ResultCode implements CustomizeResultCode{
      */
     NO_TOKEN(3011,"无token，请重新登录"),
     /**
-     * 3012:"该电话号码尚未有用户注册"
+     * 3012:"该学号尚未有用户注册"
      */
-    NO_USER(3012,"该电话号码尚未有用户注册"),
+    NO_USER(3012,"该学号尚未有用户注册"),
     /**
      * 3013:"用户输入密码错误"
      */
@@ -53,7 +53,10 @@ public enum ResultCode implements CustomizeResultCode{
      * 3017:"用户注册失败"
      */
     ERROR_USER_REGISTER(3017,"用户注册失败"),
-
+    /**
+     * 3018:"用户密码输入错误"
+     */
+    ERROR_PWD(3018,"用户密码输入错误"),
     /**
      *  2001:未知异常
      */

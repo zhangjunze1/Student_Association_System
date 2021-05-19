@@ -4,6 +4,7 @@ import cn.edu.shu.xj.ser.entity.User;
 import cn.edu.shu.xj.ser.handler.BusinessException;
 import cn.edu.shu.xj.ser.response.Result;
 import cn.edu.shu.xj.ser.response.ResultCode;
+import cn.edu.shu.xj.ser.service.impl.TokenService;
 import cn.edu.shu.xj.ser.service.impl.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -20,6 +21,9 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    TokenService tokenService;
 
     @ApiOperation(value = "注册用户")
     @PostMapping("/userRegister")
@@ -57,4 +61,26 @@ public class UserController {
             return Result.ok().data("user",nowUser);
     }
 
+
+    @ApiOperation(value = "登录用户")
+    @PostMapping("/userLogin")
+    public Result userLogin(@RequestParam("number") String userNumber,
+                            @RequestParam("password") String userPwd){
+        User user = userService.findUserByNumber(userNumber);
+        if (user==null){
+            throw new BusinessException(ResultCode.NO_USER.getCode(),
+                    ResultCode.NO_USER.getMessage());
+        }
+        String password = user.getUserPwd();
+        if(!password.equals(userPwd)){
+            throw new BusinessException(ResultCode.ERROR_PWD.getCode(),
+                    ResultCode.ERROR_PWD.getMessage());
+        }
+        if(password.equals(userPwd)){
+            String token = tokenService.getToken(user);
+            return Result.ok().data("user",user).data("token",token);
+        }else {
+            return Result.error();
+        }
+    }
 }

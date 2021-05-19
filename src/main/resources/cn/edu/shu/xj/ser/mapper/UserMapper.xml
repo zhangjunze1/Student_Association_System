@@ -21,18 +21,18 @@
         values(#{userName},#{userTrueName},#{userPwd},#{userAuthority},#{userScore},#{userNumber},#{userGender},#{userPosition},#{userPhone})
     </insert>
 
-    <select id="findUserById" resultMap="userResultMap">
+    <select id="findUserById" resultType="cn.edu.shu.xj.ser.entity.User">
         select *
         from user
         where user_id=#{userId}
     </select>
 
-    <select id="findUserByName" resultMap="userResultMap">
+    <select id="findUserByName" resultType="cn.edu.shu.xj.ser.entity.User">
         select *
         from user
         where user_name = #{userName}
     </select>
-    <select id="findUserByNumber" resultMap="userResultMap">
+    <select id="findUserByNumber" resultType="cn.edu.shu.xj.ser.entity.User">
         select *
         from user
         where user_number = #{userNumber}

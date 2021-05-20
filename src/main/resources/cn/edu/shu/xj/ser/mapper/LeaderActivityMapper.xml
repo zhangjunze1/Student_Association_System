@@ -5,7 +5,7 @@
     <resultMap id="LeaderResultMap" type="cn.edu.shu.xj.ser.entity.LeaderActivity">
         <result column="leader_activity_id" property="leaderActivityId"/>
         <result column="user_id" property="userId"/>
-        <result column="activity_id " property="activityId"/>
+        <result column="activity_id" property="activityId"/>
     </resultMap>
 
 

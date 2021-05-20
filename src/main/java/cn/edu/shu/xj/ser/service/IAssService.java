@@ -22,4 +22,19 @@ public interface IAssService  extends IService<Ass> {
      */
     List<Ass> getAssListPage(Integer Myvalue,Integer size);
 
+    /**
+     * 获取我的社团分页查询 总数
+     * @param userId
+     * @return
+     */
+    Integer countByMyId(Long userId);
+
+    /**
+     * 获取我的社团分页查询
+     * @param Myvalue
+     * @param size
+     * @param userId
+     * @return
+     */
+    List<Ass> getMyAssListPage(Integer Myvalue,Integer size,Long userId);
 }

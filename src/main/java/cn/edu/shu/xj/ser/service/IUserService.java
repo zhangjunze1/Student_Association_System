@@ -87,4 +87,14 @@ public interface IUserService extends IService<User> {
      */
     List<User> queryUserListWithNoAss(String userTrueName,String position, Integer Myvalue,Integer size);
 
+    /**
+     * 修改个人信息
+     * @param userId
+     * @param pwd
+     * @param name
+     * @param gender
+     * @param phone
+     * @param signature
+     */
+    void editUserMessage(Long userId,String pwd,String name ,String gender,String phone,String signature);
 }

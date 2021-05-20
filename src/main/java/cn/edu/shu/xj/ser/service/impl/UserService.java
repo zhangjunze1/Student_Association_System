@@ -63,4 +63,9 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     public List<User> queryUserListWithNoAss(String userTrueName, String position, Integer Myvalue, Integer size) {
         return userMapper.queryUserListWithNoAss(userTrueName, position, Myvalue, size);
     }
+
+    @Override
+    public void editUserMessage(Long userId, String pwd,String name, String gender, String phone, String signature) {
+        userMapper.editUserMessage(userId,pwd, name, gender, phone, signature);
+    }
 }

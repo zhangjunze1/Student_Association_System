@@ -24,4 +24,14 @@ public class AssService extends ServiceImpl<AssMapper, Ass> implements IAssServi
     public List<Ass> getAssListPage(Integer Myvalue, Integer size) {
         return assMapper.getAssListPage(Myvalue, size);
     }
+
+    @Override
+    public Integer countByMyId(Long userId) {
+        return assMapper.countByMyId(userId);
+    }
+
+    @Override
+    public List<Ass> getMyAssListPage(Integer Myvalue, Integer size, Long userId) {
+        return assMapper.getMyAssListPage(Myvalue, size, userId);
+    }
 }

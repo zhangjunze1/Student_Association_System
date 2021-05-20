@@ -28,5 +28,6 @@ public interface UserMapper extends BaseMapper<User> {
 
     List<User> queryUserListWithNoAss(String userTrueName,String position, Integer Myvalue,Integer size);
 
+    void editUserMessage(Long userId,String pwd,String name ,String gender,String phone,String signature);
 
 }

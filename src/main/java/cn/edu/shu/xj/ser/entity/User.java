@@ -41,6 +41,8 @@ public class User {
     private String userPic;
     // 用户电话
     private String userPhone;
+    // 个性签名
+    private String userSignature;
 
     @TableField(exist = false)
     private Integer userCount;

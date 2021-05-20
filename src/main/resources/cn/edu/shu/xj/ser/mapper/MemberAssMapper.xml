@@ -5,7 +5,7 @@
     <resultMap id="MemberAssResultMap" type="cn.edu.shu.xj.ser.entity.MemberAss">
         <result column="member_ass_id" property="memberAssId"/>
         <result column="user_id" property="userId"/>
-        <result column="ass_id " property="assId"/>
+        <result column="ass_id" property="assId"/>
     </resultMap>
 
 

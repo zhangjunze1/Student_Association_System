@@ -2,7 +2,9 @@ package cn.edu.shu.xj.ser.controller.Ass;
 
 import cn.edu.shu.xj.ser.entity.Ass;
 import cn.edu.shu.xj.ser.entity.User;
+import cn.edu.shu.xj.ser.handler.BusinessException;
 import cn.edu.shu.xj.ser.response.Result;
+import cn.edu.shu.xj.ser.response.ResultCode;
 import cn.edu.shu.xj.ser.service.impl.ActivityService;
 import cn.edu.shu.xj.ser.service.impl.AssService;
 import cn.edu.shu.xj.ser.service.impl.UserService;
@@ -55,5 +57,21 @@ public class AssController {
         List<Ass> asses = assService.getAssListPage(Myvalue,size);
         return Result.ok().data("Ass",asses).data("total",Total);
     }
+
+    @ApiOperation(value = "获取我的社团列表分页查询")
+    @GetMapping("/findMyAssListPage")
+    public Result findMyAssListPage(@RequestParam(required = true,defaultValue = "1")Integer current,
+                                  @RequestParam(required = true,defaultValue = "10")Integer size,
+                                  @RequestParam(required = true)Long userId){
+        Integer Myvalue = (current-1)*size;
+        Integer Total = assService.countByMyId(userId);
+        if( Total == 0){
+            throw new BusinessException(ResultCode.MY_ASS_IS_EMPTY.getCode(),
+                    ResultCode.MY_ASS_IS_EMPTY.getMessage());
+        }
+        List<Ass> asses = assService.getMyAssListPage(Myvalue,size,userId);
+        return Result.ok().data("total",Total).data("myAssList",asses);
+    }
+
 
 }

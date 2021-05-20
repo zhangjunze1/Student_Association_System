@@ -118,4 +118,18 @@ public class UserController {
         }
         return Result.ok().data("total",Total).data("userList",userList);
     }
+
+    @ApiOperation(value = "修改个人信息")
+    @PostMapping("/editUserMessage")
+    public Result editUserMessage(@RequestParam(required = true)Long userId,
+                                  @RequestParam(required = true)String pwd,
+                                  @RequestParam(required = true)String name,
+                                  @RequestParam(required = true)String gender,
+                                  @RequestParam(required = true)String phone,
+                                  @RequestParam(required = true)String signature){
+        userService.editUserMessage(userId,pwd,name,gender,phone,signature);
+        User user = userService.findUserById(userId);
+        return Result.ok().data("user",user);
+    }
+
 }

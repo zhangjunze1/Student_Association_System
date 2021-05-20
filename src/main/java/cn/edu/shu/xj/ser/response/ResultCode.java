@@ -66,6 +66,10 @@ public enum ResultCode implements CustomizeResultCode{
      */
     MY_ASS_IS_EMPTY(3020,"没有参加任何社团，参加社团数量为零"),
     /**
+     * 3021:"没有参加任何社团，参加社团数量为零"
+     */
+    ASS_ACTIVITY_IS_EMPTY(3021,"没有参加任何社团，参加社团数量为零"),
+    /**
      *  2001:未知异常
      */
     UNKNOW_SERVER_ERROR(2001, "未知异常,请联系管理员!");

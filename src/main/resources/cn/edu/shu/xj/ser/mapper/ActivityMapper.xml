@@ -14,6 +14,18 @@
         <result column="activity_leader_name" property="activityLeaderName"/>
     </resultMap>
 
+    <select id="countActivityById" resultType="java.lang.Integer">
+        select count(*)
+        from activity as ac, ass_activity as aa, ass as a
+        WHERE a.ass_id = aa.ass_id and ac.activity_id = aa.activity_id and a.ass_id = #{assId}
+    </select>
+
+    <select id="getActivityByAssId" resultType="cn.edu.shu.xj.ser.entity.Activity">
+        select *
+        from activity as ac, ass_activity as aa, ass as a
+        WHERE a.ass_id = aa.ass_id and ac.activity_id = aa.activity_id and a.ass_id = #{assId}
+        LIMIT #{Myvalue},#{size}
+    </select>
 
 
 </mapper>

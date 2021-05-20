@@ -15,5 +15,11 @@
         from ass
     </select>
 
+    <select id="getAssListPage" resultType="cn.edu.shu.xj.ser.entity.Ass">
+        select *
+        from ass
+        limit #{Myvalue},#{size}
+    </select>
+
 
 </mapper>

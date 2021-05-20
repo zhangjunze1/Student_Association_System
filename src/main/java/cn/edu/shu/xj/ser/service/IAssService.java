@@ -14,4 +14,12 @@ public interface IAssService  extends IService<Ass> {
      */
     List<Ass> getAssList();
 
+    /**
+     * 获取社团列表分页
+     * @param Myvalue
+     * @param size
+     * @return
+     */
+    List<Ass> getAssListPage(Integer Myvalue,Integer size);
+
 }

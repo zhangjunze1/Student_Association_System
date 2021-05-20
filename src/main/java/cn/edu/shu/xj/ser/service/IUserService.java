@@ -86,4 +86,5 @@ public interface IUserService extends IService<User> {
      * @return
      */
     List<User> queryUserListWithNoAss(String userTrueName,String position, Integer Myvalue,Integer size);
+
 }

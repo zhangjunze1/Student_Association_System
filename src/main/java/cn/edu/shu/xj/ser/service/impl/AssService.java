@@ -19,4 +19,9 @@ public class AssService extends ServiceImpl<AssMapper, Ass> implements IAssServi
     public List<Ass> getAssList() {
         return assMapper.getAssList();
     }
+
+    @Override
+    public List<Ass> getAssListPage(Integer Myvalue, Integer size) {
+        return assMapper.getAssListPage(Myvalue, size);
+    }
 }

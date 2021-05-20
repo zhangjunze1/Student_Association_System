@@ -12,4 +12,5 @@ public interface AssMapper extends BaseMapper<Ass> {
 
     List<Ass> getAssList();
 
+    List<Ass> getAssListPage(Integer Myvalue,Integer size);
 }

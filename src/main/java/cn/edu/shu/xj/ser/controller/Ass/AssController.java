@@ -1,6 +1,7 @@
 package cn.edu.shu.xj.ser.controller.Ass;
 
 import cn.edu.shu.xj.ser.entity.Ass;
+import cn.edu.shu.xj.ser.entity.User;
 import cn.edu.shu.xj.ser.response.Result;
 import cn.edu.shu.xj.ser.service.impl.ActivityService;
 import cn.edu.shu.xj.ser.service.impl.AssService;
@@ -43,6 +44,16 @@ public class AssController {
     public Result findAssList(){
         List<Ass> asses = assService.getAssList();
         return Result.ok().data("Ass",asses);
+    }
+
+    @ApiOperation(value = "获取社团列表分页查询")
+    @GetMapping("/findAssListPage")
+    public Result findAssListPage(@RequestParam(required = true,defaultValue = "1")Integer current,
+                                  @RequestParam(required = true,defaultValue = "10")Integer size){
+        Integer Myvalue = (current-1)*size;
+        Integer Total = assService.count();
+        List<Ass> asses = assService.getAssListPage(Myvalue,size);
+        return Result.ok().data("Ass",asses).data("total",Total);
     }
 
 }

@@ -30,4 +30,6 @@ public interface UserMapper extends BaseMapper<User> {
 
     void editUserMessage(Long userId,String pwd,String name ,String gender,String phone,String signature);
 
+    User getLeaderByAssId(Long assId);
+
 }

@@ -34,4 +34,19 @@ public class AssService extends ServiceImpl<AssMapper, Ass> implements IAssServi
     public List<Ass> getMyAssListPage(Integer Myvalue, Integer size, Long userId) {
         return assMapper.getMyAssListPage(Myvalue, size, userId);
     }
+
+    @Override
+    public Ass findSameNameAss(String name) {
+        return assMapper.findSameNameAss(name);
+    }
+
+    @Override
+    public Ass findSameLeaderAss(String name) {
+        return assMapper.findSameLeaderAss(name);
+    }
+
+    @Override
+    public void applynewAss(String name, String position, Integer funds, String teacher,String leaderName) {
+        assMapper.applynewAss(name, position, funds, teacher,leaderName);
+    }
 }

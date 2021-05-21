@@ -41,4 +41,20 @@ public class ActivityController {
         return Result.ok().data("total",Total).data("activities",activities);
     }
 
+    @ApiOperation(value = "根据我的Id查询我的活动记录")
+    @GetMapping("/findMyActivityPage")
+    public Result findMyActivityPage(@RequestParam(required = true,defaultValue = "1")Integer current,
+                                      @RequestParam(required = true,defaultValue = "10")Integer size,
+                                      @RequestParam(required = true)Long userId){
+        //对用户进行分页，泛型中注入的就是用户实体类
+        Integer Myvalue = (current-1)*size;
+        Integer Total = activityService.countActivityByUserId(userId);
+//        if( Total == 0){
+//            throw new BusinessException(ResultCode.ASS_ACTIVITY_IS_EMPTY.getCode(),
+//                    ResultCode.ASS_ACTIVITY_IS_EMPTY.getMessage());
+//        }
+        List<Activity> activities = activityService.getActivityByUserId(Myvalue,size,userId);
+        return Result.ok().data("total",Total).data("activities",activities);
+    }
+
 }

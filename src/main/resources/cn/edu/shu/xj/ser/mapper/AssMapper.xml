@@ -9,10 +9,17 @@
         <result column="ass_capital" property="assCapital"/>
         <result column="ass_teacher" property="assTeacher"/>
         <result column="ass_notice" property="assNotice"/>
+        <result column="ass_state" property="assState"/>
+        <result column="ass_leader" property="assLeader"/>
     </resultMap>
+    <insert id="applynewAss">
+        insert into ass(ass_name,ass_positon,ass_capital,ass_teacher,ass_notice,ass_state,ass_leader)
+        values (#{name},#{position},#{funds},#{teacher},"","申请中",#{leaderName})
+    </insert>
     <select id="getAssList" resultType="cn.edu.shu.xj.ser.entity.Ass">
         select *
         from ass
+        where ass.ass_state = "已通过"
     </select>
 
     <select id="getAssListPage" resultType="cn.edu.shu.xj.ser.entity.Ass">
@@ -32,6 +39,17 @@
         from ass as a,member_ass as b, user as u
         where u.user_id = b.user_id and a.ass_id = b.ass_id and u.user_id = #{userId}
         limit #{Myvalue},#{size}
+    </select>
+    <select id="findSameNameAss" resultType="cn.edu.shu.xj.ser.entity.Ass">
+        select *
+        from ass
+        where ass.ass_name=#{name}
+    </select>
+
+    <select id="findSameLeaderAss" resultType="cn.edu.shu.xj.ser.entity.Ass">
+        select *
+        from ass
+        where ass.ass_leader=#{name}
     </select>
 
 

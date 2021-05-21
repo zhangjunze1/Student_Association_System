@@ -37,4 +37,28 @@ public interface IAssService  extends IService<Ass> {
      * @return
      */
     List<Ass> getMyAssListPage(Integer Myvalue,Integer size,Long userId);
+
+    /**
+     * 有无社团名字重复
+     * @param name
+     * @return
+     */
+    Ass findSameNameAss(String name);
+
+    /**
+     * 查找是否连续两次申请社团
+     * @param name
+     * @return
+     */
+    Ass findSameLeaderAss(String name);
+
+    /**
+     * 申请新的社团
+     * @param name
+     * @param position
+     * @param funds
+     * @param teacher
+     * @param leaderName
+     */
+    void applynewAss(String name,String position,Integer funds,String teacher,String leaderName);
 }

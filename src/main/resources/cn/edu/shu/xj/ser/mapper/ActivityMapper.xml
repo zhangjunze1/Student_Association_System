@@ -12,6 +12,9 @@
         <result column="activity_state" property="activityState"/>
         <result column="activity_score" property="activityScore"/>
         <result column="activity_leader_name" property="activityLeaderName"/>
+        <result column="activity_end_content" property="activityEndContent"/>
+        <result column="activity_end_url" property="activityEndUrl"/>
+
     </resultMap>
 
     <select id="countActivityById" resultType="java.lang.Integer">
@@ -24,6 +27,18 @@
         select *
         from activity as ac, ass_activity as aa, ass as a
         WHERE a.ass_id = aa.ass_id and ac.activity_id = aa.activity_id and a.ass_id = #{assId}
+        LIMIT #{Myvalue},#{size}
+    </select>
+
+    <select id="countActivityByUserId" resultType="java.lang.Integer">
+        select count(*)
+        from activity as ac, user_activity as ua, user as u
+        WHERE u.user_id = ua.user_id and ac.activity_id = ua.activity_id and u.user_id= #{userId}
+    </select>
+    <select id="getActivityByUserId" resultType="cn.edu.shu.xj.ser.entity.Activity">
+        select *
+        from activity as ac, user_activity as ua, user as u
+        WHERE u.user_id = ua.user_id and ac.activity_id = ua.activity_id and u.user_id= #{userId}
         LIMIT #{Myvalue},#{size}
     </select>
 

@@ -21,5 +21,6 @@ public class MemberAss {
     private Long userId;
     // 社团编号
     private Long assId;
-
+    // 该关系状态（申请中，已通过）
+    private String memberAssState;
 }

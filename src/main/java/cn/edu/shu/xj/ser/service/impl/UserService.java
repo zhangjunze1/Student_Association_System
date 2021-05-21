@@ -68,4 +68,9 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     public void editUserMessage(Long userId, String pwd,String name, String gender, String phone, String signature) {
         userMapper.editUserMessage(userId,pwd, name, gender, phone, signature);
     }
+
+    @Override
+    public User getLeaderByAssId(Long assId) {
+        return userMapper.getLeaderByAssId(assId);
+    }
 }

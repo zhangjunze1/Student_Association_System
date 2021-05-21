@@ -97,4 +97,11 @@ public interface IUserService extends IService<User> {
      * @param signature
      */
     void editUserMessage(Long userId,String pwd,String name ,String gender,String phone,String signature);
+
+    /**
+     * 获取社长By社团编号
+     * @param assId
+     * @return
+     */
+    User getLeaderByAssId(Long assId);
 }

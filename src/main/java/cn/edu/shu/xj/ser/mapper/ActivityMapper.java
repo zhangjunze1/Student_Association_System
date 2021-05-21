@@ -13,4 +13,7 @@ public interface ActivityMapper extends BaseMapper<Activity> {
 
     List<Activity> getActivityByAssId(Integer Myvalue,Integer size,Long assId);
 
+    Integer countActivityByUserId(Long userId);
+
+    List<Activity> getActivityByUserId(Integer Myvalue,Integer size,Long userId);
 }

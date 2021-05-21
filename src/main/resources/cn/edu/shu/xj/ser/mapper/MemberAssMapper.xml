@@ -6,6 +6,7 @@
         <result column="member_ass_id" property="memberAssId"/>
         <result column="user_id" property="userId"/>
         <result column="ass_id" property="assId"/>
+        <result column="member_ass_state" property="memberAssState"/>
     </resultMap>
 
 

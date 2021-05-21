@@ -23,4 +23,19 @@ public interface IActivityService extends IService<Activity> {
      */
     List<Activity> getActivityByAssId(Integer Myvalue, Integer size, Long assId);
 
+    /**
+     * 获取我的活动记录的数量
+     * @param userId
+     * @return
+     */
+    Integer countActivityByUserId(Long userId);
+
+    /**
+     * 获取我的活动记录
+     * @param Myvalue
+     * @param size
+     * @param userId
+     * @return
+     */
+    List<Activity> getActivityByUserId(Integer Myvalue,Integer size,Long userId);
 }

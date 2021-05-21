@@ -22,4 +22,6 @@ public class AssActivity {
     private Long activityId;
     // 社团编号
     private Long assId;
+    // 该关系状态（申请中，已通过）
+    private String assActivityState;
 }

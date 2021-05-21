@@ -6,6 +6,7 @@
         <result column="user_activity_id" property="userActivityId"/>
         <result column="activity_id" property="activityId"/>
         <result column="user_id" property="userId"/>
+        <result column="user_activity_state" property="userActivityState"/>
     </resultMap>
 
 

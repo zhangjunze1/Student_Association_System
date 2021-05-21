@@ -23,4 +23,14 @@ public class ActivityService extends ServiceImpl<ActivityMapper, Activity> imple
     public List<Activity> getActivityByAssId(Integer Myvalue, Integer size, Long assId) {
         return activityMapper.getActivityByAssId(Myvalue, size, assId);
     }
+
+    @Override
+    public Integer countActivityByUserId(Long userId) {
+        return activityMapper.countActivityByUserId(userId);
+    }
+
+    @Override
+    public List<Activity> getActivityByUserId(Integer Myvalue, Integer size, Long userId) {
+        return activityMapper.getActivityByUserId(Myvalue, size, userId);
+    }
 }

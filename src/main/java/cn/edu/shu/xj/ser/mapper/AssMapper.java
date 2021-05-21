@@ -17,4 +17,10 @@ public interface AssMapper extends BaseMapper<Ass> {
     Integer countByMyId(Long userId);
 
     List<Ass> getMyAssListPage(Integer Myvalue,Integer size,Long userId);
+
+    Ass findSameNameAss(String name);
+
+    Ass findSameLeaderAss(String name);
+
+    void applynewAss(String name,String position,Integer funds,String teacher,String leaderName);
 }

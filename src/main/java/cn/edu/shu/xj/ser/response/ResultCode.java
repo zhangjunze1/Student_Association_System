@@ -70,6 +70,15 @@ public enum ResultCode implements CustomizeResultCode{
      */
     ASS_ACTIVITY_IS_EMPTY(3021,"没有参加任何社团，参加社团数量为零"),
     /**
+     * 3022:"社团申请时，名字重复"
+     */
+    ASS_NAME_REPEAT(3022,"社团申请时，名字重复"),
+    /**
+     * 3023:"已申请过一次社团"
+     */
+    MEMBER_ALREADY_APPLY_ASS(3023,"已申请过一次社团"),
+
+    /**
      *  2001:未知异常
      */
     UNKNOW_SERVER_ERROR(2001, "未知异常,请联系管理员!");

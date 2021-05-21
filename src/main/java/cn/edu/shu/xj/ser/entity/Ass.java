@@ -1,5 +1,6 @@
 package cn.edu.shu.xj.ser.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -27,4 +28,15 @@ public class Ass {
     private String assTeacher;
     // 社团公告
     private String assNotice;
+    // 社团状态 （申请中，已通过）
+    private String assState;
+    // 社团社长
+    private String assLeader;
+
+    // 社团成员与社团的关系（申请中，已通过）
+    @TableField(exist = false)
+    private String memberAssState;
+    // 社团社长编号
+    @TableField(exist = false)
+    private String userTrueName;
 }

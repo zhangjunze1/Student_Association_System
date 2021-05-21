@@ -6,6 +6,7 @@
         <result column="ass_activity_id" property="assActivityId"/>
         <result column="activity_id" property="activityId"/>
         <result column="ass_id" property="assId"/>
+        <result column="ass_activity_state" property="assActivityState"/>
     </resultMap>
 
 

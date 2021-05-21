@@ -7,14 +7,12 @@ import cn.edu.shu.xj.ser.response.Result;
 import cn.edu.shu.xj.ser.response.ResultCode;
 import cn.edu.shu.xj.ser.service.impl.ActivityService;
 import cn.edu.shu.xj.ser.service.impl.AssService;
+import cn.edu.shu.xj.ser.service.impl.LeaderAssService;
 import cn.edu.shu.xj.ser.service.impl.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,6 +29,9 @@ public class AssController {
 
     @Autowired
     ActivityService activityService;
+
+    @Autowired
+    LeaderAssService leaderAssService;
 
     @ApiOperation(value = "获取系统数据（系统成员+社团数量+活动数量）")
     @GetMapping("/findsystemData")
@@ -70,7 +71,38 @@ public class AssController {
                     ResultCode.MY_ASS_IS_EMPTY.getMessage());
         }
         List<Ass> asses = assService.getMyAssListPage(Myvalue,size,userId);
+        Integer i = 0;
+        if (i!=Total){
+            User user = userService.getLeaderByAssId(asses.get(i).getAssId());
+            asses.get(i).setUserTrueName(user.getUserTrueName());
+        }
         return Result.ok().data("total",Total).data("myAssList",asses);
+    }
+
+
+    @ApiOperation(value = "申请新的社团")
+    @PostMapping("/applyNewAss")
+    public Result applyNewAss(@RequestParam(required = true)String name,
+                              @RequestParam(required = true)String position,
+                              @RequestParam(required = true)Integer funds,
+                              @RequestParam(required = true)String teacher,
+                              @RequestParam(required = true)Long userId){
+        // 获取一样名字的社团
+        Ass ass = assService.findSameNameAss(name);
+        User user = userService.findUserById(userId);
+        // 连续两次申请社团
+        Ass ass1 = assService.findSameLeaderAss(user.getUserTrueName());
+
+        if (ass!=null){
+            throw new BusinessException(ResultCode.ASS_NAME_REPEAT.getCode(),
+                    ResultCode.ASS_NAME_REPEAT.getMessage());
+        }
+        if (ass1!=null){
+            throw new BusinessException(ResultCode.MEMBER_ALREADY_APPLY_ASS.getCode(),
+                    ResultCode.MEMBER_ALREADY_APPLY_ASS.getMessage());
+        }
+        assService.applynewAss(name,position,funds,teacher,user.getUserTrueName());
+        return Result.ok();
     }
 
 

@@ -55,7 +55,7 @@
         select count(*)
         from user , member_ass ,ass
         where user.user_id = member_ass.user_id and ass.ass_id = member_ass.ass_id
-        AND user_true_name LIKE "%"#{userTrueName}"%" AND ass_name LIKE "%"#{assName}"%" AND user_position like "%"#{position}"%"
+        AND user_true_name LIKE "%"#{userTrueName}"%" AND ass_name LIKE "%"#{assName}"%" AND user_position like "%"#{position}"%" and member_ass.member_ass_state="已通过"
     </select>
 
     <select id="findUserListTotalWithNoAss" resultType="java.lang.Integer">
@@ -68,7 +68,7 @@
         select user.*
         from user , member_ass ,ass
         where user.user_id = member_ass.user_id and ass.ass_id = member_ass.ass_id
-        AND user_true_name LIKE "%"#{userTrueName}"%" AND ass_name LIKE "%"#{assName}"%" AND user_position like "%"#{position}"%"
+        AND user_true_name LIKE "%"#{userTrueName}"%" AND ass_name LIKE "%"#{assName}"%" AND user_position like "%"#{position}"%" and member_ass.member_ass_state="已通过"
         limit #{Myvalue},#{size}
     </select>
 
@@ -77,6 +77,12 @@
         from user
         where user_true_name LIKE "%"#{userTrueName}"%"  AND user_position like "%"#{position}"%"
         limit #{Myvalue},#{size}
+    </select>
+
+    <select id="getLeaderByAssId" resultType="cn.edu.shu.xj.ser.entity.User">
+        select u.*
+        from user as u,leader_ass as la ,ass as a
+        where la.ass_id = a.ass_id and u.user_id = la.user_id and u.user_position ="社长" and a.ass_id =#{assId}
     </select>
 
 

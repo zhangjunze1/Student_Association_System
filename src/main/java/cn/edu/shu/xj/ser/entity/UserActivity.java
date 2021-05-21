@@ -21,4 +21,6 @@ public class UserActivity {
     private Long activityId;
     // 用户编号
     private Long userId;
+    // 该关系状态（申请中，已通过）
+    private String userActivityState;
 }

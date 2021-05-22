@@ -105,5 +105,14 @@ public class AssController {
         return Result.ok();
     }
 
+    @ApiOperation(value = "获取社长的社团信息")
+    @GetMapping("/findLeaderAss")
+    public Result findLeaderAss(@RequestParam(required = true)Long userId){
+        Ass ass = assService.getAssByLeaderId(userId);
+
+        return Result.ok().data("ass",ass);
+    }
+
+
 
 }

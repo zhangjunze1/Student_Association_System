@@ -23,4 +23,6 @@ public interface AssMapper extends BaseMapper<Ass> {
     Ass findSameLeaderAss(String name);
 
     void applynewAss(String name,String position,Integer funds,String teacher,String leaderName);
+
+    Ass getAssByLeaderId(Long userId);
 }

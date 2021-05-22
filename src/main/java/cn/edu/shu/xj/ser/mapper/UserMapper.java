@@ -32,4 +32,8 @@ public interface UserMapper extends BaseMapper<User> {
 
     User getLeaderByAssId(Long assId);
 
+    Integer getTotalMemberByAssId(Long assId,String trueName,String number,String memberAssState);
+
+    List<User> getAllMemberByAssId(Integer Myvalue,Integer size, Long assId,String trueName,String number,String memberAssState);
+
 }

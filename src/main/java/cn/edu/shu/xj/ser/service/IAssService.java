@@ -61,4 +61,11 @@ public interface IAssService  extends IService<Ass> {
      * @param leaderName
      */
     void applynewAss(String name,String position,Integer funds,String teacher,String leaderName);
+
+    /**
+     * 获取社长的社团信息
+     * @param userId
+     * @return
+     */
+    Ass getAssByLeaderId(Long userId);
 }

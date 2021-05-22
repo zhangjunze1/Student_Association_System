@@ -104,4 +104,31 @@ public interface IUserService extends IService<User> {
      * @return
      */
     User getLeaderByAssId(Long assId);
+
+    /**
+     * 获取社团对应所有社员的数量
+     * @param assId
+     * @param trueName
+     * @param number
+     * @param memberAssState
+     * @return
+     */
+    Integer getTotalMemberByAssId(Long assId,String trueName,String number,String memberAssState);
+
+
+    /**
+     * 获取社团对应所有社员信息
+     * @param Myvalue
+     * @param size
+     * @param assId
+     * @param trueName
+     * @param number
+     * @param memberAssState
+     * @return
+     */
+    List<User> getAllMemberByAssId(Integer Myvalue,Integer size, Long assId,String trueName,String number,String memberAssState);
+
+
+
+
 }

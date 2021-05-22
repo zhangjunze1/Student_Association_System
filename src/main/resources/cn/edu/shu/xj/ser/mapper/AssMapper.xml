@@ -52,5 +52,11 @@
         where ass.ass_leader=#{name}
     </select>
 
+    <select id="getAssByLeaderId" resultType="cn.edu.shu.xj.ser.entity.Ass">
+        select *
+        from ass,user,leader_ass
+        where user.user_id = leader_ass.user_id and ass.ass_id = leader_ass.ass_id and `user`.user_id=#{userId}
+    </select>
+
 
 </mapper>

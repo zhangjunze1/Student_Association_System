@@ -46,4 +46,6 @@ public class User {
 
     @TableField(exist = false)
     private Integer userCount;
+    @TableField(exist = false)
+    private String memberAssState;
 }

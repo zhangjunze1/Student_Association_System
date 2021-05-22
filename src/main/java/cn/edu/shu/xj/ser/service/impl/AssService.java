@@ -49,4 +49,9 @@ public class AssService extends ServiceImpl<AssMapper, Ass> implements IAssServi
     public void applynewAss(String name, String position, Integer funds, String teacher,String leaderName) {
         assMapper.applynewAss(name, position, funds, teacher,leaderName);
     }
+
+    @Override
+    public Ass getAssByLeaderId(Long userId) {
+        return assMapper.getAssByLeaderId(userId);
+    }
 }

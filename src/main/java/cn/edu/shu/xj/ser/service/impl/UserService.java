@@ -73,4 +73,14 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     public User getLeaderByAssId(Long assId) {
         return userMapper.getLeaderByAssId(assId);
     }
+
+    @Override
+    public Integer getTotalMemberByAssId(Long assId,String trueName,String number,String memberAssState) {
+        return userMapper.getTotalMemberByAssId(assId, trueName, number,memberAssState);
+    }
+
+    @Override
+    public List<User> getAllMemberByAssId(Integer Myvalue,Integer size, Long assId,String trueName,String number,String memberAssState) {
+        return userMapper.getAllMemberByAssId(Myvalue, size, assId,trueName,number,memberAssState);
+    }
 }

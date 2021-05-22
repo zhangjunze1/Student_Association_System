@@ -132,5 +132,18 @@ public class UserController {
         return Result.ok().data("user",user);
     }
 
+    @ApiOperation(value = "获取社长所在社团的所有成员的信息")
+    @GetMapping("/findAssMember")
+    public Result findAssMember(@RequestParam(required = true,defaultValue = "1")Integer current,
+                                @RequestParam(required = true,defaultValue = "10")Integer size,
+                                @RequestParam(required = true)Long assId,
+                                @RequestParam(required = true)String trueName,
+                                @RequestParam(required = true)String number,
+                                @RequestParam(required = true)String memberAssState){
+        Integer Myvalue =  (current-1)*size;
+        Integer Total = userService.getTotalMemberByAssId(assId,trueName,number,memberAssState);
+        List<User> userList = userService.getAllMemberByAssId(Myvalue,size,assId,trueName,number,memberAssState);
+        return Result.ok().data("userList",userList).data("total",Total);
+    }
 
 }

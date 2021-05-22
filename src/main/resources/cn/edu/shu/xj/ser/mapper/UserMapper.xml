@@ -85,5 +85,19 @@
         where la.ass_id = a.ass_id and u.user_id = la.user_id and u.user_position ="社长" and a.ass_id =#{assId}
     </select>
 
+    <select id="getAllMemberByAssId" resultType="cn.edu.shu.xj.ser.entity.User">
+        SELECT *
+        from ass as a,user as u,member_ass as ma
+        where a.ass_id = ma.ass_id and u.user_id = ma.user_id and a.ass_id = #{assId} and u.user_true_name like "%"#{trueName}"%" and u.user_number like "%"#{number}"%"
+        and ma.member_ass_state like "%"#{memberAssState}"%"
+        LIMIT #{Myvalue},#{size}
+    </select>
+    <select id="getTotalMemberByAssId" resultType="java.lang.Integer">
+        SELECT count(*)
+        from ass as a,user as u,member_ass as ma
+        where a.ass_id = ma.ass_id and u.user_id = ma.user_id and a.ass_id = #{assId} and u.user_true_name like "%"#{trueName}"%" and u.user_number like "%"#{number}"%"
+        and ma.member_ass_state like "%"#{memberAssState}"%"
+    </select>
+
 
 </mapper>

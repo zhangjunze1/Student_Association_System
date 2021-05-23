@@ -57,6 +57,16 @@
         from ass,user,leader_ass
         where user.user_id = leader_ass.user_id and ass.ass_id = leader_ass.ass_id and `user`.user_id=#{userId}
     </select>
+    <select id="getAssListQueryPage" resultType="cn.edu.shu.xj.ser.entity.Ass">
+        select *
+        from ass
+        where ass.ass_name like "%"#{assName}"%" and ass.ass_state like "%"#{assState}"%"
+    </select>
+    <select id="countQuery" resultType="java.lang.Integer">
+        select count(*)
+        from ass
+        where ass.ass_name like "%"#{assName}"%" and ass.ass_state like "%"#{assState}"%"
+    </select>
 
 
 </mapper>

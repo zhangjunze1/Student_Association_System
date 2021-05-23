@@ -68,4 +68,22 @@ public interface IAssService  extends IService<Ass> {
      * @return
      */
     Ass getAssByLeaderId(Long userId);
+
+    /**
+     * 分页条件查询 社团的总数
+     * @param assName
+     * @param assState
+     * @return
+     */
+    Integer countQuery(String assName ,String assState);
+
+    /**
+     * 分页条件查询社团
+     * @param Myvalue
+     * @param size
+     * @param assName
+     * @param assState
+     * @return
+     */
+    List<Ass> getAssListQueryPage(Integer Myvalue,Integer size, String assName ,String assState);
 }

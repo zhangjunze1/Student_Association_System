@@ -7,7 +7,10 @@
         <result column="user_id" property="userId"/>
         <result column="activity_id" property="activityId"/>
     </resultMap>
-
+    <insert id="addNewLeaderActivity">
+        insert into leader_activity(user_id,activity_id)
+        values (#{userId},#{activityId})
+    </insert>
 
 
 </mapper>

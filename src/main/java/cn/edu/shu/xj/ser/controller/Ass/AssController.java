@@ -49,6 +49,7 @@ public class AssController {
         return Result.ok().data("Ass",asses);
     }
 
+
     @ApiOperation(value = "获取社团列表分页查询")
     @GetMapping("/findAssListPage")
     public Result findAssListPage(@RequestParam(required = true,defaultValue = "1")Integer current,
@@ -58,6 +59,19 @@ public class AssController {
         List<Ass> asses = assService.getAssListPage(Myvalue,size);
         return Result.ok().data("Ass",asses).data("total",Total);
     }
+
+    @ApiOperation(value = "获取社团列表分页条件查询")
+    @GetMapping("/findAssListQueryPage")
+    public Result findAssListQueryPage(@RequestParam(required = true,defaultValue = "1")Integer current,
+                                        @RequestParam(required = true,defaultValue = "10")Integer size,
+                                       @RequestParam(required = true)String assName,
+                                       @RequestParam(required = true)String assState){
+        Integer Myvalue = (current-1)*size;
+        Integer Total = assService.countQuery(assName,assState);
+        List<Ass> asses = assService.getAssListQueryPage(Myvalue,size,assName,assState);
+        return Result.ok().data("Ass",asses).data("total",Total);
+    }
+
 
     @ApiOperation(value = "获取我的社团列表分页查询")
     @GetMapping("/findMyAssListPage")

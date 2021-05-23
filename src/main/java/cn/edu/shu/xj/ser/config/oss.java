@@ -2,8 +2,10 @@ package cn.edu.shu.xj.ser.config;
 
 
 import cn.edu.shu.xj.ser.response.Result;
+import cn.edu.shu.xj.ser.service.IActivityService;
 import cn.edu.shu.xj.ser.service.IUserService;
 import com.aliyun.oss.OSS;
+import cn.edu.shu.xj.ser.response.Result;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.model.OSSObject;
 import com.aliyun.oss.model.PutObjectResult;
@@ -13,18 +15,17 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.Random;
 
 @Api(tags = "文件上传")
 @RestController
 @Service
+@RequestMapping("/oss")
 public class oss {
     String endpoint = "oss-cn-hangzhou.aliyuncs.com";
     String accessKeyId = "LTAI5tBji2779oNNiitohXS7";
@@ -35,6 +36,7 @@ public class oss {
 //    String accessKeySecret = "ABi1Mz2Xh4NVU4pT8TOPJncaAqJdVW";
 //    String bucketName = "rdcj";
     String subPath = "test/";
+    String activityPath = "activity/";
     String carPath = "car/";
     OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
     String picture_name = "";
@@ -70,6 +72,7 @@ public class oss {
         System.out.println(shangping_id);
         return true;
     }
+
 
 //    @Autowired
 //    Ibusiness_Serive ibusiness_serive;
@@ -114,6 +117,30 @@ public class oss {
 //        ishangping_serive.update(shangping,a.eq("shangping_id",shangping.getShangpingId()));//将url上传到数据库
 //        return true;
 //    }
+
+    @ApiOperation(value = "上传活动报名照片", notes = "请记得上传时加上参数 file !")
+    @PostMapping(value = "/activityPre/uploadFile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public Result uploadActivityPic(@RequestParam("file") MultipartFile file ) throws IOException {
+        //随机生成照片url
+        String str="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        Random random=new Random();
+        StringBuffer sb=new StringBuffer();
+        for(int i=0;i<10;i++){
+            int number=random.nextInt(62);
+            sb.append(str.charAt(number));
+        }
+        picture_name=sb.toString()+".jpg";
+
+        IdWorker.getIdStr();
+        ossClient.putObject(bucketName, activityPath + picture_name, file.getInputStream());//上传服务器
+
+        Date expiration = new Date(System.currentTimeMillis() +3600*24*365);//时差2000S左右
+        String url = ossClient.generatePresignedUrl(bucketName, activityPath + picture_name, expiration).toString();//从服务器获取图片url
+        OSSObject ossObject = ossClient.getObject(bucketName, activityPath + picture_name);
+        ossObject.getObjectContent();
+
+        return Result.ok().data("url",url);
+    }
 
 //    @ApiOperation(value = "获取添加用户车辆", notes = "请记得上传时加上参数 file !")
 //    @PostMapping(value = "/oss/addUserCars", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)

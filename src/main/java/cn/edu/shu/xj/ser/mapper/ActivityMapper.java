@@ -16,4 +16,8 @@ public interface ActivityMapper extends BaseMapper<Activity> {
     Integer countActivityByUserId(Long userId);
 
     List<Activity> getActivityByUserId(Integer Myvalue,Integer size,Long userId);
+
+    void addNew(String activitySub,String activityContent,String activityScore,String activityStartTime,String activityFinishTime,String imageUrl,String userTrueName);
+
+    Long activityMaxId();
 }

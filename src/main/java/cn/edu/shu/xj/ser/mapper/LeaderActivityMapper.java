@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 public interface LeaderActivityMapper extends BaseMapper<LeaderActivity> {
 
-
+    void addNewLeaderActivity(Long userId,Long activityId);
 
 }

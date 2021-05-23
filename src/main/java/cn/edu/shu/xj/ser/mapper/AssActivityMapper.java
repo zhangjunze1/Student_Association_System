@@ -7,4 +7,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface AssActivityMapper extends BaseMapper<AssActivity> {
+
+    void addNewAssActivity(Long assId,Long activityId);
 }

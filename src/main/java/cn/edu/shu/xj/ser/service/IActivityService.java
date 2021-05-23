@@ -38,4 +38,22 @@ public interface IActivityService extends IService<Activity> {
      * @return
      */
     List<Activity> getActivityByUserId(Integer Myvalue,Integer size,Long userId);
+
+    /**
+     * 增加新活动
+     * @param activitySub
+     * @param activityContent
+     * @param activityScore
+     * @param activityStartTime
+     * @param activityFinishTime
+     * @param imageUrl
+     * @param userTrueName
+     */
+    void addNew(String activitySub,String activityContent,String activityScore,String activityStartTime,String activityFinishTime,String imageUrl,String userTrueName);
+
+    /**
+     * 获取最近一次添加的活动编号
+     * @return
+     */
+    Long activityMaxId();
 }

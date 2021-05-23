@@ -54,4 +54,14 @@ public class AssService extends ServiceImpl<AssMapper, Ass> implements IAssServi
     public Ass getAssByLeaderId(Long userId) {
         return assMapper.getAssByLeaderId(userId);
     }
+
+    @Override
+    public Integer countQuery(String assName, String assState) {
+        return assMapper.countQuery(assName, assState);
+    }
+
+    @Override
+    public List<Ass> getAssListQueryPage(Integer Myvalue, Integer size, String assName, String assState) {
+        return assMapper.getAssListQueryPage(Myvalue, size, assName, assState);
+    }
 }

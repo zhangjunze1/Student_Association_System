@@ -7,14 +7,17 @@ import cn.edu.shu.xj.ser.mapper.ActivityMapper;
 import cn.edu.shu.xj.ser.response.Result;
 import cn.edu.shu.xj.ser.response.ResultCode;
 import cn.edu.shu.xj.ser.service.impl.ActivityService;
+import cn.edu.shu.xj.ser.service.impl.AssActivityService;
+import cn.edu.shu.xj.ser.service.impl.LeaderActivityService;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.*;
 
+import javax.xml.crypto.Data;
+import java.util.Date;
 import java.util.List;
 
 @Api(tags = "活动接口")
@@ -24,6 +27,12 @@ public class ActivityController {
 
     @Autowired
     ActivityService activityService;
+
+    @Autowired
+    AssActivityService assActivityService;
+
+    @Autowired
+    LeaderActivityService leaderActivityService;
 
     @ApiOperation(value = "根据社团查询对应活动")
     @GetMapping("/findAssActivityPage")
@@ -56,5 +65,34 @@ public class ActivityController {
         List<Activity> activities = activityService.getActivityByUserId(Myvalue,size,userId);
         return Result.ok().data("total",Total).data("activities",activities);
     }
+
+
+    @ApiOperation(value = "新增活动申请")
+    @PostMapping("/addNewActivity")
+    public Result addNewActivity(@RequestParam(required = true)String activitySub,
+                                 @RequestParam(required = true)String activityContent,
+                                 @RequestParam(required = true)String activityScore,
+                                 @RequestParam(required = true) @JsonFormat(pattern = "yyyy-MM-dd",timezone="GMT+8")String activityFinishTime1,
+                                 @RequestParam(required = true) @JsonFormat(pattern = "HH:mm:ss",timezone="GMT+8")String activityFinishTime2,
+                                 @RequestParam(required = true) @JsonFormat(pattern = "yyyy-MM-dd",timezone="GMT+8")String activityStartTime1,
+                                 @RequestParam(required = true) @JsonFormat(pattern = "HH:mm:ss",timezone="GMT+8")String activityStartTime2,
+                                 @RequestParam(required = true)String imageUrl,
+                                 @RequestParam(required = true)Long userId,
+                                 @RequestParam(required = true)Long assId,
+                                 @RequestParam(required = true)String userTrueName){
+        String activityFinishTime = activityFinishTime1+" "+activityFinishTime2;
+        String activityStartTime = activityStartTime1+" "+ activityStartTime2;
+
+        System.out.println(activityFinishTime1);
+        System.out.println(activityStartTime1);
+        System.out.println(activityFinishTime2);
+        System.out.println(activityStartTime2);
+        activityService.addNew(activitySub,activityContent,activityScore,activityStartTime,activityFinishTime,imageUrl,userTrueName);
+        Long activityId = activityService.activityMaxId();
+        assActivityService.addNewAssActivity(assId,activityId);
+        leaderActivityService.addNewLeaderActivity(userId,activityId);
+        return Result.ok();
+    }
+
 
 }

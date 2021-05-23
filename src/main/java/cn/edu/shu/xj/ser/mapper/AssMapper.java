@@ -25,4 +25,9 @@ public interface AssMapper extends BaseMapper<Ass> {
     void applynewAss(String name,String position,Integer funds,String teacher,String leaderName);
 
     Ass getAssByLeaderId(Long userId);
+
+    Integer countQuery(String assName ,String assState);
+
+    List<Ass> getAssListQueryPage(Integer Myvalue,Integer size, String assName ,String assState);
+
 }

@@ -33,4 +33,14 @@ public class ActivityService extends ServiceImpl<ActivityMapper, Activity> imple
     public List<Activity> getActivityByUserId(Integer Myvalue, Integer size, Long userId) {
         return activityMapper.getActivityByUserId(Myvalue, size, userId);
     }
+
+    @Override
+    public void addNew(String activitySub, String activityContent, String activityScore, String activityStartTime, String activityFinishTime, String imageUrl, String userTrueName) {
+        activityMapper.addNew(activitySub, activityContent, activityScore, activityStartTime, activityFinishTime, imageUrl, userTrueName);
+    }
+
+    @Override
+    public Long activityMaxId() {
+        return activityMapper.activityMaxId();
+    }
 }

@@ -16,6 +16,10 @@
         <result column="activity_end_url" property="activityEndUrl"/>
 
     </resultMap>
+    <insert id="addNew">
+        insert into activity(activity_sub,activity_content,activity_url,activity_start_time,activity_finish_time,activity_state,activity_score,activity_leader_name)
+        VALUES (#{activitySub},#{activityContent},#{imageUrl},#{activityStartTime},#{activityFinishTime},"审核中",#{activityScore},#{userTrueName})
+    </insert>
 
     <select id="countActivityById" resultType="java.lang.Integer">
         select count(*)
@@ -40,6 +44,10 @@
         from activity as ac, user_activity as ua, user as u
         WHERE u.user_id = ua.user_id and ac.activity_id = ua.activity_id and u.user_id= #{userId}
         LIMIT #{Myvalue},#{size}
+    </select>
+    <select id="activityMaxId" resultType="java.lang.Long">
+        select max(activity_id)
+        from activity
     </select>
 
 

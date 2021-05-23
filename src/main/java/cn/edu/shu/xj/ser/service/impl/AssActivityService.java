@@ -15,4 +15,9 @@ public class AssActivityService extends ServiceImpl<AssActivityMapper, AssActivi
 
     @Autowired
     AssActivityMapper assActivityMapper;
+
+    @Override
+    public void addNewAssActivity(Long assId, Long activityId) {
+        assActivityMapper.addNewAssActivity(assId, activityId);
+    }
 }

@@ -20,4 +20,10 @@ public interface ActivityMapper extends BaseMapper<Activity> {
     void addNew(String activitySub,String activityContent,String activityScore,String activityStartTime,String activityFinishTime,String imageUrl,String userTrueName);
 
     Long activityMaxId();
+
+    Integer findApplyActivityCount(String assName,String activityState);
+
+    List<Activity> findApplyActivity(Integer Myvalue,Integer size,String assName,String activityState);
+
+
 }

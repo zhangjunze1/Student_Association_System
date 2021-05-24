@@ -39,4 +39,8 @@ public class Ass {
     // 社团社长编号
     @TableField(exist = false)
     private String userTrueName;
+    // 申请的社团活动的申请个数
+    @TableField(exist = false)
+    private Integer NumberOfApply;
+
 }

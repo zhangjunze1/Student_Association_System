@@ -94,5 +94,20 @@ public class ActivityController {
         return Result.ok();
     }
 
+    @ApiOperation(value = "管理员界面中获取条件分页查询活动")
+    @GetMapping("/findApplyActivity")
+    public Result findApplyActivity(@RequestParam(required = true,defaultValue = "1")Integer current,
+                                    @RequestParam(required = true,defaultValue = "10")Integer size,
+                                    @RequestParam(required = true)String assName,
+                                    @RequestParam(required = true)String activityState){
+
+        Integer Myvalue = (current-1)*size;
+        Integer Total = activityService.findApplyActivityCount(assName,activityState);
+        List<Activity> activities = activityService.findApplyActivity(Myvalue,size,assName,activityState);
+        return Result.ok().data("total",Total).data("activities",activities);
+    }
+
+
+
 
 }

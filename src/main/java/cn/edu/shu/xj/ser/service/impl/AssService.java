@@ -1,5 +1,6 @@
 package cn.edu.shu.xj.ser.service.impl;
 
+import cn.edu.shu.xj.ser.entity.Activity;
 import cn.edu.shu.xj.ser.entity.Ass;
 import cn.edu.shu.xj.ser.mapper.AssMapper;
 import cn.edu.shu.xj.ser.service.IAssService;
@@ -58,6 +59,11 @@ public class AssService extends ServiceImpl<AssMapper, Ass> implements IAssServi
     @Override
     public Integer countQuery(String assName, String assState) {
         return assMapper.countQuery(assName, assState);
+    }
+
+    @Override
+    public List<Ass> findActivityAndApplyCount() {
+        return assMapper.findActivityAndApplyCount();
     }
 
     @Override

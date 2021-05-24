@@ -1,6 +1,7 @@
 package cn.edu.shu.xj.ser.mapper;
 
 
+import cn.edu.shu.xj.ser.entity.Activity;
 import cn.edu.shu.xj.ser.entity.Ass;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Component;
@@ -29,5 +30,7 @@ public interface AssMapper extends BaseMapper<Ass> {
     Integer countQuery(String assName ,String assState);
 
     List<Ass> getAssListQueryPage(Integer Myvalue,Integer size, String assName ,String assState);
+
+    List<Ass> findActivityAndApplyCount();
 
 }

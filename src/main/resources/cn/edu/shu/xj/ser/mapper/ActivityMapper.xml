@@ -49,6 +49,19 @@
         select max(activity_id)
         from activity
     </select>
+    <select id="findApplyActivityCount" resultType="java.lang.Integer">
+        SELECT count(*)
+        from activity as ac ,ass ,ass_activity as aa
+        where ac.activity_id = aa.activity_id and ass.ass_id = aa.ass_id and ass.ass_name LIKE "%"#{assName}"%" and  ac.activity_state LIKE "%"#{activityState}"%"
+    </select>
+
+    <select id="findApplyActivity" resultType="cn.edu.shu.xj.ser.entity.Activity">
+        SELECT *
+        from activity as ac ,ass ,ass_activity as aa
+        where ac.activity_id = aa.activity_id and ass.ass_id = aa.ass_id and ass.ass_name LIKE "%"#{assName}"%" and  ac.activity_state LIKE "%"#{activityState}"%"
+        LIMIT #{Myvalue},#{size}
+    </select>
+
 
 
 </mapper>

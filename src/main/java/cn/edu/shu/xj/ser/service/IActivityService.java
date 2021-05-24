@@ -56,4 +56,24 @@ public interface IActivityService extends IService<Activity> {
      * @return
      */
     Long activityMaxId();
+
+    /**
+     * 管理员界面获取条件分页查询活动的数量
+     * @param assName
+     * @param activityState
+     * @return
+     */
+    Integer findApplyActivityCount(String assName,String activityState);
+
+    /**
+     * 管理员界面获取条件分页查询活动
+     * @param Myvalue
+     * @param size
+     * @param assName
+     * @param activityState
+     * @return
+     */
+    List<Activity> findApplyActivity(Integer Myvalue,Integer size,String assName,String activityState);
+
+
 }

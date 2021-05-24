@@ -68,5 +68,10 @@
         where ass.ass_name like "%"#{assName}"%" and ass.ass_state like "%"#{assState}"%"
     </select>
 
-
+    <select id="findActivityAndApplyCount" resultType="cn.edu.shu.xj.ser.entity.Ass">
+        select ass.ass_name,count(*) as NumberOfApply
+        from activity as ac , ass,ass_activity as aa
+        where ac.activity_id = aa.activity_id and ass.ass_id = aa.ass_id and ac.activity_state = "审核中"
+        GROUP BY ass.ass_name
+    </select>
 </mapper>

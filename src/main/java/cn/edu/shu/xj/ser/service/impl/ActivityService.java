@@ -43,4 +43,16 @@ public class ActivityService extends ServiceImpl<ActivityMapper, Activity> imple
     public Long activityMaxId() {
         return activityMapper.activityMaxId();
     }
+
+    @Override
+    public Integer findApplyActivityCount(String assName, String activityState) {
+        return activityMapper.findApplyActivityCount(assName, activityState);
+    }
+
+    @Override
+    public List<Activity> findApplyActivity(Integer Myvalue, Integer size, String assName, String activityState) {
+        return activityMapper.findApplyActivity(Myvalue, size, assName, activityState);
+    }
+
+
 }

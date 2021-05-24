@@ -1,6 +1,7 @@
 package cn.edu.shu.xj.ser.service;
 
 
+import cn.edu.shu.xj.ser.entity.Activity;
 import cn.edu.shu.xj.ser.entity.Ass;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -86,4 +87,10 @@ public interface IAssService  extends IService<Ass> {
      * @return
      */
     List<Ass> getAssListQueryPage(Integer Myvalue,Integer size, String assName ,String assState);
+
+    /**
+     * 获取正在审核中的活动及其数量
+     * @return
+     */
+    List<Ass> findActivityAndApplyCount();
 }

@@ -1,5 +1,6 @@
 package cn.edu.shu.xj.ser.controller.Ass;
 
+import cn.edu.shu.xj.ser.entity.Activity;
 import cn.edu.shu.xj.ser.entity.Ass;
 import cn.edu.shu.xj.ser.entity.User;
 import cn.edu.shu.xj.ser.handler.BusinessException;
@@ -127,6 +128,12 @@ public class AssController {
         return Result.ok().data("ass",ass);
     }
 
+    @ApiOperation(value = "获取正在审核中的活动及其数量")
+    @GetMapping("/findActivityAndApplyCount")
+    public Result findActivityAndApplyCount(){
+        List<Ass> applyActivities = assService.findActivityAndApplyCount();
+        return Result.ok().data("applyActivities",applyActivities);
+    }
 
 
 }

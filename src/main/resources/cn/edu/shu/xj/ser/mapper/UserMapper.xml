@@ -25,6 +25,16 @@
         update user set user_name = #{name}, user_pwd = #{pwd},user_gender = #{gender} ,user_signature = #{signature}, user_phone = #{phone}
         where user_id = #{userId}
     </update>
+    <update id="agreeAutorityChange">
+        update user
+        set user_authority = 1 ,user_position = "社长"
+        where user_id =#{userId}
+    </update>
+    <update id="changeAuthority">
+        update user
+        set user_authority = #{userAuthority} ,user_position = #{userPosition}
+        where user_id =#{userId}
+    </update>
 
     <select id="findUserById" resultType="cn.edu.shu.xj.ser.entity.User">
         select *
@@ -97,6 +107,12 @@
         from ass as a,user as u,member_ass as ma
         where a.ass_id = ma.ass_id and u.user_id = ma.user_id and a.ass_id = #{assId} and u.user_true_name like "%"#{trueName}"%" and u.user_number like "%"#{number}"%"
         and ma.member_ass_state like "%"#{memberAssState}"%"
+    </select>
+
+    <select id="findUserByTrueName" resultType="cn.edu.shu.xj.ser.entity.User">
+        select *
+        from user
+        where user_true_name = #{userTrueName}
     </select>
 
 

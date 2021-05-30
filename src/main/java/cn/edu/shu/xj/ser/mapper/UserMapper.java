@@ -14,6 +14,8 @@ public interface UserMapper extends BaseMapper<User> {
 
     User findUserByName(String userName);
 
+    User findUserByTrueName(String userTrueName);
+
     User findUserByNumber(String userNumber);
 
     void userRegister(String userName,String userTrueName,String userPwd,Integer userAuthority,Integer userScore,String userNumber,String userGender,String userPosition,String userPhone);
@@ -36,4 +38,7 @@ public interface UserMapper extends BaseMapper<User> {
 
     List<User> getAllMemberByAssId(Integer Myvalue,Integer size, Long assId,String trueName,String number,String memberAssState);
 
+    void agreeAutorityChange(Long userId);
+
+    void changeAuthority(Long userId,Integer userAuthority,String userPosition);
 }

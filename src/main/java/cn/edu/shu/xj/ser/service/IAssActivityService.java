@@ -12,4 +12,10 @@ public interface IAssActivityService extends IService<AssActivity> {
      */
     void addNewAssActivity(Long assId,Long activityId);
 
+    /**
+     * 删除社团时清除联结活动信息
+     * @param assId
+     */
+    void deleteAssByAssId(Long assId);
+
 }

@@ -33,4 +33,11 @@ public interface AssMapper extends BaseMapper<Ass> {
 
     List<Ass> findActivityAndApplyCount();
 
+    void agreeStateChange(Long assId);
+
+    void notAgreeDeleteAss(Long assId);
+
+    void changeAssLeader(Long assId,String userTrueName);
+
+    void deleteAss(Long assId);
 }

@@ -93,4 +93,29 @@ public interface IAssService  extends IService<Ass> {
      * @return
      */
     List<Ass> findActivityAndApplyCount();
+
+    /**
+     * 通过申请中的社团 改变状态
+     * @param assId
+     */
+    void agreeStateChange(Long assId);
+
+    /**
+     * 不通过申请中的社团
+     * @param assId
+     */
+    void notAgreeDeleteAss(Long assId);
+
+    /**
+     * 更换社团中 社长姓名
+     * @param assId
+     * @param userTrueName
+     */
+    void changeAssLeader(Long assId,String userTrueName);
+
+    /**
+     * 删除社团
+     * @param assId
+     */
+    void deleteAss(Long assId);
 }

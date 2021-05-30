@@ -12,4 +12,24 @@ public class LeaderAssService extends ServiceImpl<LeaderAssMapper, LeaderAss> im
 
     @Autowired
     LeaderAssMapper leaderAssMapper;
+
+    @Override
+    public void addLeaderAss(Long assId, Long userId) {
+        leaderAssMapper.addLeaderAss(assId, userId);
+    }
+
+    @Override
+    public LeaderAss getLeaderAss(Long assId) {
+        return leaderAssMapper.getLeaderAss(assId);
+    }
+
+    @Override
+    public void changeUserId(Long olduserId, Long newuserId) {
+        leaderAssMapper.changeUserId(olduserId, newuserId);
+    }
+
+    @Override
+    public void deleteAssByAssId(Long assId) {
+        leaderAssMapper.deleteAssByAssId(assId);
+    }
 }

@@ -16,6 +16,24 @@
         insert into ass(ass_name,ass_positon,ass_capital,ass_teacher,ass_notice,ass_state,ass_leader)
         values (#{name},#{position},#{funds},#{teacher},"","申请中",#{leaderName})
     </insert>
+    <update id="agreeStateChange">
+        UPDATE ass
+        set ass_state = "已通过"
+        where ass_id =#{assId}
+    </update>
+    <update id="changeAssLeader">
+        UPDATE ass
+        set ass_leader = #{userTrueName}
+        where ass_id =#{assId}
+    </update>
+    <delete id="notAgreeDeleteAss">
+        delete FROM ass
+        where ass_id = #{assId}
+    </delete>
+    <delete id="deleteAss">
+        delete from ass
+        where ass_id=#{assId}
+    </delete>
     <select id="getAssList" resultType="cn.edu.shu.xj.ser.entity.Ass">
         select *
         from ass
@@ -55,7 +73,7 @@
     <select id="getAssByLeaderId" resultType="cn.edu.shu.xj.ser.entity.Ass">
         select *
         from ass,user,leader_ass
-        where user.user_id = leader_ass.user_id and ass.ass_id = leader_ass.ass_id and `user`.user_id=#{userId}
+        where user.user_id = leader_ass.user_id and ass.ass_id = leader_ass.ass_id and user.user_id=#{userId}
     </select>
     <select id="getAssListQueryPage" resultType="cn.edu.shu.xj.ser.entity.Ass">
         select *

@@ -77,6 +77,14 @@ public enum ResultCode implements CustomizeResultCode{
      * 3023:"已申请过一次社团"
      */
     MEMBER_ALREADY_APPLY_ASS(3023,"已申请过一次社团"),
+    /**
+     * 3024:"该成员已是社长或管理员，无法管理新社团"
+     */
+    USER_IS_LEADER(3024,"该成员已是社长或管理员，无法管理新社团"),
+    /**
+     * 3025:"该学号不存在"
+     */
+    NO_USER_NUMBER(3025,"该学号不存在"),
 
     /**
      *  2001:未知异常

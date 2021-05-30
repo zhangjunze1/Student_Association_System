@@ -83,4 +83,19 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     public List<User> getAllMemberByAssId(Integer Myvalue,Integer size, Long assId,String trueName,String number,String memberAssState) {
         return userMapper.getAllMemberByAssId(Myvalue, size, assId,trueName,number,memberAssState);
     }
+
+    @Override
+    public void agreeAutorityChange(Long userId) {
+        userMapper.agreeAutorityChange(userId);
+    }
+
+    @Override
+    public User findUserByTrueName(String userTrueName) {
+        return userMapper.findUserByTrueName(userTrueName);
+    }
+
+    @Override
+    public void changeAuthority(Long userId, Integer userAuthority, String userPosition) {
+        userMapper.changeAuthority(userId, userAuthority, userPosition);
+    }
 }

@@ -7,7 +7,24 @@
         <result column="ass_id" property="assId"/>
         <result column="user_id" property="userId"/>
     </resultMap>
-
+    <insert id="addLeaderAss">
+        insert into leader_ass(ass_id,user_id)
+        values (#{assId},#{userId})
+    </insert>
+    <update id="changeUserId">
+        update leader_ass
+        set user_id = #{newuserId}
+        where user_id =#{olduserId}
+    </update>
+    <delete id="deleteAssByAssId">
+        delete from leader_ass
+        where ass_id=#{assId}
+    </delete>
+    <select id="getLeaderAss" resultType="cn.edu.shu.xj.ser.entity.LeaderAss">
+        select *
+        from leader_ass
+        where ass_id=#{assId}
+    </select>
 
 
 </mapper>

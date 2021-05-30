@@ -9,4 +9,6 @@ import org.springframework.stereotype.Component;
 public interface AssActivityMapper extends BaseMapper<AssActivity> {
 
     void addNewAssActivity(Long assId,Long activityId);
+
+    void deleteAssByAssId(Long assId);
 }

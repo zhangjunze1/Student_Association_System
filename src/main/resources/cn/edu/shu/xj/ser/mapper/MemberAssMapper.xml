@@ -8,7 +8,10 @@
         <result column="ass_id" property="assId"/>
         <result column="member_ass_state" property="memberAssState"/>
     </resultMap>
-
+    <delete id="deleteAssByAssId">
+        delete from member_ass
+        where ass_id=#{assId}
+    </delete>
 
 
 </mapper>

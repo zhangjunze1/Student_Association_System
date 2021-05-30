@@ -67,6 +67,26 @@ public class AssService extends ServiceImpl<AssMapper, Ass> implements IAssServi
     }
 
     @Override
+    public void agreeStateChange(Long assId) {
+        assMapper.agreeStateChange(assId);
+    }
+
+    @Override
+    public void notAgreeDeleteAss(Long assId) {
+        assMapper.notAgreeDeleteAss(assId);
+    }
+
+    @Override
+    public void changeAssLeader(Long assId,String userTrueName) {
+        assMapper.changeAssLeader(assId,userTrueName);
+    }
+
+    @Override
+    public void deleteAss(Long assId) {
+        assMapper.deleteAss(assId);
+    }
+
+    @Override
     public List<Ass> getAssListQueryPage(Integer Myvalue, Integer size, String assName, String assState) {
         return assMapper.getAssListQueryPage(Myvalue, size, assName, assState);
     }

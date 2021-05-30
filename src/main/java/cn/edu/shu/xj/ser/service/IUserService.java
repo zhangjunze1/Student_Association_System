@@ -128,7 +128,25 @@ public interface IUserService extends IService<User> {
      */
     List<User> getAllMemberByAssId(Integer Myvalue,Integer size, Long assId,String trueName,String number,String memberAssState);
 
+    /**
+     * 改变用户状态变成社长
+     * @param userId
+     */
+    void agreeAutorityChange(Long userId);
 
+    /**
+     * 获取userBy真实名字
+     * @param userTrueName
+     * @return
+     */
+    User findUserByTrueName(String userTrueName);
 
+    /**
+     * 更改权限
+     * @param userId
+     * @param userAuthority
+     * @param userPosition
+     */
+    void changeAuthority(Long userId,Integer userAuthority,String userPosition);
 
 }

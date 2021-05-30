@@ -13,6 +13,10 @@
         insert into ass_activity(activity_id,ass_id,ass_activity_state)
         values (#{activityId},#{assId},"申请中")
     </insert>
+    <delete id="deleteAssByAssId">
+        delete from ass_activity
+        where ass_id =#{assId}
+    </delete>
 
 
 </mapper>

@@ -3,11 +3,20 @@
 <mapper namespace="cn.edu.shu.xj.ser.mapper.NoticeMapper">
     <!-- 通用查询映射结果 -->
     <resultMap id="NoticeResultMap" type="cn.edu.shu.xj.ser.entity.Notice">
-        <result column="notice_id" property="noticId"/>
+        <result column="notice_id" property="noticeId"/>
         <result column="notice_content" property="noticeContent"/>
         <result column="notice_pic" property="noticePic"/>
     </resultMap>
-
+    <update id="editNotice">
+        update notice
+        set notice_content = #{notice}
+        where notice_id = 1
+    </update>
+    <select id="getByNoticeId" resultType="cn.edu.shu.xj.ser.entity.Notice">
+        select *
+        from notice
+        where notice_id=#{noticeId}
+    </select>
 
 
 </mapper>

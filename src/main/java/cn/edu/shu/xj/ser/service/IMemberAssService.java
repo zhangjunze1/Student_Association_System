@@ -11,4 +11,10 @@ public interface IMemberAssService extends IService<MemberAss> {
      * @param assId
      */
     void deleteAssByAssId(Long assId);
+
+    /**
+     * 删除社员社团关联信息
+     * @param userId
+     */
+    void deleteAllByUserId(Long userId);
 }

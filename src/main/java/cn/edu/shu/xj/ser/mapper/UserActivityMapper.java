@@ -7,4 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface UserActivityMapper extends BaseMapper<UserActivity> {
+
+    void deleteAllByUserId(Long userId);
+
 }

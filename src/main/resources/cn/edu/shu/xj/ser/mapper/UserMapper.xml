@@ -35,6 +35,10 @@
         set user_authority = #{userAuthority} ,user_position = #{userPosition}
         where user_id =#{userId}
     </update>
+    <delete id="deleteUser">
+        delete from user
+        where user_id =#{userId}
+    </delete>
 
     <select id="findUserById" resultType="cn.edu.shu.xj.ser.entity.User">
         select *

@@ -98,4 +98,9 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     public void changeAuthority(Long userId, Integer userAuthority, String userPosition) {
         userMapper.changeAuthority(userId, userAuthority, userPosition);
     }
+
+    @Override
+    public void deleteUser(Long userId) {
+        userMapper.deleteUser(userId);
+    }
 }

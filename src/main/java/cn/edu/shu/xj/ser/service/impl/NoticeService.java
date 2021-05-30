@@ -16,4 +16,13 @@ public class NoticeService extends ServiceImpl<NoticeMapper, Notice> implements 
     @Autowired
     NoticeMapper noticeMapperl;
 
+    @Override
+    public Notice getByNoticeId(Long noticeId) {
+        return noticeMapperl.getByNoticeId(noticeId);
+    }
+
+    @Override
+    public void editNotice(String notice) {
+        noticeMapperl.editNotice(notice);
+    }
 }

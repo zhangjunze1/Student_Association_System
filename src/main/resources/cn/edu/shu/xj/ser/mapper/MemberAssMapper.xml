@@ -12,6 +12,10 @@
         delete from member_ass
         where ass_id=#{assId}
     </delete>
+    <delete id="deleteAllByUserId">
+        delete from member_ass
+        where user_id = #{userId}
+    </delete>
 
 
 </mapper>

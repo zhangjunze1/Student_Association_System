@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class Notice {
     @TableId
     // 公告编号
-    private Long noticId;
+    private Long noticeId;
     // 公告内容
     private String noticeContent;
     // 公告图片

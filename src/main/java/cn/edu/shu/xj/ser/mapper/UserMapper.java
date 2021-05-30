@@ -41,4 +41,6 @@ public interface UserMapper extends BaseMapper<User> {
     void agreeAutorityChange(Long userId);
 
     void changeAuthority(Long userId,Integer userAuthority,String userPosition);
+
+    void deleteUser(Long userId);
 }

@@ -9,4 +9,6 @@ import org.springframework.stereotype.Component;
 public interface MemberAssMapper extends BaseMapper<MemberAss> {
 
     void deleteAssByAssId(Long assId);
+
+    void deleteAllByUserId(Long userId);
 }

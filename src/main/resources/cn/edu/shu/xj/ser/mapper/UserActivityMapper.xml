@@ -8,7 +8,10 @@
         <result column="user_id" property="userId"/>
         <result column="user_activity_state" property="userActivityState"/>
     </resultMap>
-
+    <delete id="deleteAllByUserId">
+        delete from user_activity
+        where user_id =#{userId}
+    </delete>
 
 
 </mapper>

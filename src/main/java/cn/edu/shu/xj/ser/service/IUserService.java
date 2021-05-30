@@ -149,4 +149,9 @@ public interface IUserService extends IService<User> {
      */
     void changeAuthority(Long userId,Integer userAuthority,String userPosition);
 
+    /**
+     * 删除用户
+     * @param userId
+     */
+    void deleteUser(Long userId);
 }

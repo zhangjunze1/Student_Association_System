@@ -17,4 +17,8 @@ public class UserActivityService extends ServiceImpl<UserActivityMapper, UserAct
     UserActivityMapper userActivityMapper;
 
 
+    @Override
+    public void deleteAllByUserId(Long userId) {
+        userActivityMapper.deleteAllByUserId(userId);
+    }
 }

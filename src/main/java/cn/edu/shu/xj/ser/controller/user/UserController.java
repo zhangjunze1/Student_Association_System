@@ -4,7 +4,9 @@ import cn.edu.shu.xj.ser.entity.User;
 import cn.edu.shu.xj.ser.handler.BusinessException;
 import cn.edu.shu.xj.ser.response.Result;
 import cn.edu.shu.xj.ser.response.ResultCode;
+import cn.edu.shu.xj.ser.service.impl.MemberAssService;
 import cn.edu.shu.xj.ser.service.impl.TokenService;
+import cn.edu.shu.xj.ser.service.impl.UserActivityService;
 import cn.edu.shu.xj.ser.service.impl.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,6 +25,12 @@ public class UserController {
 
     @Autowired
     TokenService tokenService;
+
+    @Autowired
+    UserActivityService userActivityService;
+
+    @Autowired
+    MemberAssService memberAssService;
 
     @ApiOperation(value = "注册用户")
     @PostMapping("/userRegister")
@@ -145,5 +153,19 @@ public class UserController {
         List<User> userList = userService.getAllMemberByAssId(Myvalue,size,assId,trueName,number,memberAssState);
         return Result.ok().data("userList",userList).data("total",Total);
     }
+
+    @ApiOperation(value = "删除社员")
+    @PostMapping("/membersDelete")
+    public Result membersDelete(@RequestParam(required = true)Long userId){
+
+        memberAssService.deleteAllByUserId(userId);
+
+        userActivityService.deleteAllByUserId(userId);
+
+        userService.deleteUser(userId);
+
+        return Result.ok();
+    }
+
 
 }

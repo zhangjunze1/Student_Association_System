@@ -10,4 +10,40 @@ public interface IUserActivityService extends IService<UserActivity> {
      * @param userId
      */
     void deleteAllByUserId(Long userId);
+
+    /**
+     * 获取某活动对应参与成员的总数
+     * @param activityId
+     * @return
+     */
+    Integer countPartMemberByActivityId(Long activityId);
+
+    /**
+     * 是否已经报名活动
+     * @param activityId
+     * @param userId
+     * @return
+     */
+    UserActivity findUserActivity(Long activityId,Long userId);
+
+    /**
+     * 申请已有社团的某个报名中的活动
+     * @param activityId
+     * @param userId
+     */
+    void addNewUserActivity(Long activityId,Long userId);
+
+    /**
+     * 同意社员的活动请求
+     * @param activityId
+     * @param userId
+     */
+    void agreeUserActivity(Long activityId,Long userId);
+
+    /**
+     * 拒绝社员的活动请求
+     * @param activityId
+     * @param userId
+     */
+    void notagreeUserActivity(Long activityId,Long userId);
 }

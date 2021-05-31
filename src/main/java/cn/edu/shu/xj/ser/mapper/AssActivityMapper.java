@@ -11,4 +11,8 @@ public interface AssActivityMapper extends BaseMapper<AssActivity> {
     void addNewAssActivity(Long assId,Long activityId);
 
     void deleteAssByAssId(Long assId);
+
+    void passActivity(Long activityId);
+
+    void notpassActivity(Long activityId);
 }

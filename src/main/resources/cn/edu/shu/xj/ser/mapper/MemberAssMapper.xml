@@ -8,6 +8,18 @@
         <result column="ass_id" property="assId"/>
         <result column="member_ass_state" property="memberAssState"/>
     </resultMap>
+    <insert id="addMemberAss">
+        insert into member_ass(user_id,ass_id,member_ass_state)
+        values(#{userId},#{assId},"申请中")
+    </insert>
+
+    <update id="editMemberAss">
+        update member_ass
+        set member_ass_state="已通过"
+        where user_id=#{userId} and ass_id =#{assId}
+    </update>
+
+
     <delete id="deleteAssByAssId">
         delete from member_ass
         where ass_id=#{assId}
@@ -16,6 +28,20 @@
         delete from member_ass
         where user_id = #{userId}
     </delete>
+    <delete id="editNotAgreeMemberAss">
+        delete from member_ass
+        where user_id=#{userId} and ass_id =#{assId}
+    </delete>
+    <delete id="deleteMemberFromAss">
+        delete from member_ass
+        where user_id=#{userId} and ass_id =#{assId}
+    </delete>
+
+    <select id="getMemberAss" resultType="cn.edu.shu.xj.ser.entity.MemberAss">
+        select *
+        from  member_ass
+        where ass_id=#{assId} and user_id =#{userId}
+    </select>
 
 
 </mapper>

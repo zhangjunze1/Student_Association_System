@@ -13,9 +13,18 @@
         insert into ass_activity(activity_id,ass_id,ass_activity_state)
         values (#{activityId},#{assId},"申请中")
     </insert>
+    <update id="passActivity">
+        update ass_activity
+        set ass_activity_state="已通过"
+        where activity_id=#{activityId}
+    </update>
     <delete id="deleteAssByAssId">
         delete from ass_activity
         where ass_id =#{assId}
+    </delete>
+    <delete id="notpassActivity">
+        delete from ass_activity
+        where activity_id=#{activityId}
     </delete>
 
 

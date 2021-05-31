@@ -11,4 +11,14 @@ public interface MemberAssMapper extends BaseMapper<MemberAss> {
     void deleteAssByAssId(Long assId);
 
     void deleteAllByUserId(Long userId);
+
+    MemberAss getMemberAss(Long assId,Long userId);
+
+    void addMemberAss(Long assId,Long userId);
+
+    void editMemberAss(Long assId,Long userId);
+
+    void editNotAgreeMemberAss(Long assId,Long userId);
+
+    void deleteMemberFromAss(Long assId,Long userId);
 }

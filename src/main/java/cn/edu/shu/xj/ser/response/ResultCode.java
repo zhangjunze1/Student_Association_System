@@ -85,6 +85,23 @@ public enum ResultCode implements CustomizeResultCode{
      * 3025:"该学号不存在"
      */
     NO_USER_NUMBER(3025,"该学号不存在"),
+    /**
+     * 3026:"您已经申请了该社团，尚未通过"
+     */
+    USER_ALREADY_APPLY(3026,"您已经申请了该社团，尚未通过"),
+    /**
+     * 3027:"您已经是该社团的社员"
+     */
+    USER_ALREADY_IN_ASS(3027,"您已经是该社团的社员"),
+    /**
+     * 3028:"已经申请了该活动"
+     */
+    USER_ALREADY_APPLY_ACTIVITY(3028,"已经申请了该活动"),
+    /**
+     * 3029:"已经通过了该活动的审核"
+     */
+    USER_ALREADY_HAVE_ACTIVITY(3029,"已经通过了该活动的审核"),
+
 
     /**
      *  2001:未知异常

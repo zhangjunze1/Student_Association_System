@@ -24,4 +24,29 @@ public class MemberAssService extends ServiceImpl<MemberAssMapper, MemberAss> im
     public void deleteAllByUserId(Long userId) {
         memberAssMapper.deleteAllByUserId(userId);
     }
+
+    @Override
+    public MemberAss getMemberAss(Long assId, Long userId) {
+        return memberAssMapper.getMemberAss(assId, userId);
+    }
+
+    @Override
+    public void addMemberAss(Long assId, Long userId) {
+        memberAssMapper.addMemberAss(assId, userId);
+    }
+
+    @Override
+    public void editMemberAss(Long assId, Long userId) {
+        memberAssMapper.editMemberAss(assId, userId);
+    }
+
+    @Override
+    public void editNotAgreeMemberAss(Long assId, Long userId) {
+        memberAssMapper.editNotAgreeMemberAss(assId, userId);
+    }
+
+    @Override
+    public void deleteMemberFromAss(Long assId, Long userId) {
+        memberAssMapper.deleteMemberFromAss(assId, userId);
+    }
 }

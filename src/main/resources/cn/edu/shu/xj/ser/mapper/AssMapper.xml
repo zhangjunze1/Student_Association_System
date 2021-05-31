@@ -79,6 +79,7 @@
         select *
         from ass
         where ass.ass_name like "%"#{assName}"%" and ass.ass_state like "%"#{assState}"%"
+        limit #{Myvalue},#{size}
     </select>
     <select id="countQuery" resultType="java.lang.Integer">
         select count(*)

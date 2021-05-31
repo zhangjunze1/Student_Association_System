@@ -8,10 +8,34 @@
         <result column="user_id" property="userId"/>
         <result column="user_activity_state" property="userActivityState"/>
     </resultMap>
+    <insert id="addNewUserActivity">
+        insert into user_activity(activity_id,user_id,user_activity_state)
+        values(#{activityId},#{userId},"申请中")
+    </insert>
+    <update id="agreeUserActivity">
+        update user_activity
+        set user_activity_state="已通过"
+        where activity_id=#{activityId} and user_id =#{userId}
+    </update>
     <delete id="deleteAllByUserId">
         delete from user_activity
         where user_id =#{userId}
     </delete>
+    <delete id="notagreeUserActivity">
+        delete from user_activity
+        where activity_id=#{activityId} and user_id =#{userId}
+    </delete>
+
+    <select id="countPartMemberByActivityId" resultType="java.lang.Integer">
+        select count(*)
+        from user_activity
+        where activity_id=#{activityId}
+    </select>
+    <select id="findUserActivity" resultType="cn.edu.shu.xj.ser.entity.UserActivity">
+        select *
+        from user_activity
+        where activity_id=#{activityId} and user_id=#{userId}
+    </select>
 
 
 </mapper>

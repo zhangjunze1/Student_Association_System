@@ -54,5 +54,35 @@ public class ActivityService extends ServiceImpl<ActivityMapper, Activity> imple
         return activityMapper.findApplyActivity(Myvalue, size, assName, activityState);
     }
 
+    @Override
+    public void passActivity(Long activityId) {
+        activityMapper.passActivity(activityId);
+    }
+
+    @Override
+    public void notpassActivity(Long activityId) {
+        activityMapper.notpassActivity(activityId);
+    }
+
+    @Override
+    public void endActivityApply(Long activityId) {
+        activityMapper.endActivityApply(activityId);
+    }
+
+    @Override
+    public void endActivity(Long activityId) {
+        activityMapper.endActivity(activityId);
+    }
+
+    @Override
+    public void addEndContent(Long activityId, String activityEndContent, String imageUrl) {
+         activityMapper.addEndContent(activityId, activityEndContent, imageUrl);
+    }
+
+    @Override
+    public Activity getActivityByActivityId(Long activityId) {
+        return activityMapper.getActivityByActivityId(activityId);
+    }
+
 
 }

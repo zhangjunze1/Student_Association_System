@@ -43,4 +43,10 @@ public interface UserMapper extends BaseMapper<User> {
     void changeAuthority(Long userId,Integer userAuthority,String userPosition);
 
     void deleteUser(Long userId);
+
+    List<User> getUserByActivityId(Long activityId);
+
+    List<User> getPartMemberByActivityId(Integer Myvalue,Integer size,Long activityId);
+
+    void addScore(Long userId,Integer score);
 }

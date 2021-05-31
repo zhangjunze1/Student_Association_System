@@ -48,4 +48,7 @@ public class User {
     private Integer userCount;
     @TableField(exist = false)
     private String memberAssState;
+    // 该关系状态（申请中，已通过）
+    @TableField(exist = false)
+    private String userActivityState;
 }

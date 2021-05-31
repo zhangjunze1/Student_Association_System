@@ -18,4 +18,16 @@ public interface IAssActivityService extends IService<AssActivity> {
      */
     void deleteAssByAssId(Long assId);
 
+    /**
+     * 审批通过 社团活动联结表信息更改
+     * @param activityId
+     */
+    void passActivity(Long activityId);
+
+    /**
+     * 审批不通过 社团活动联结表信息删除
+     * @param activityId
+     */
+    void notpassActivity(Long activityId);
+
 }

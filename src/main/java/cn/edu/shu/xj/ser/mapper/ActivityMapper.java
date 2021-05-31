@@ -25,5 +25,17 @@ public interface ActivityMapper extends BaseMapper<Activity> {
 
     List<Activity> findApplyActivity(Integer Myvalue,Integer size,String assName,String activityState);
 
+    void passActivity(Long activityId);
+
+    void notpassActivity(Long activityId);
+
+    void endActivityApply(Long activityId);
+
+    void endActivity(Long activityId);
+
+    Activity getActivityByActivityId(Long activityId);
+
+    void addEndContent(Long activityId,String activityEndContent,String imageUrl);
+
 
 }

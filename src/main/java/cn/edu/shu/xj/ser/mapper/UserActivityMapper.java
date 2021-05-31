@@ -10,4 +10,13 @@ public interface UserActivityMapper extends BaseMapper<UserActivity> {
 
     void deleteAllByUserId(Long userId);
 
+    Integer countPartMemberByActivityId(Long activityId);
+
+    UserActivity findUserActivity(Long activityId,Long userId);
+
+    void addNewUserActivity(Long activityId,Long userId);
+
+    void agreeUserActivity(Long activityId,Long userId);
+
+    void notagreeUserActivity(Long activityId,Long userId);
 }

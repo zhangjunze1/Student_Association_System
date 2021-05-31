@@ -32,10 +32,10 @@ public class Activity {
     // 活动结束时间
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Timestamp activityFinishTime;
-    // 活动状态(审核中、报名中、活动结束)
+    // 活动状态(审核中、报名中、报名结束、活动结束)
     private String activityState;
     // 本次活动分值
-    private String activityScore;
+    private Integer activityScore;
     // 活动发起人
     private String activityLeaderName;
     // 活动结束内容

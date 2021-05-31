@@ -2,6 +2,8 @@ package cn.edu.shu.xj.ser.controller.Activity;
 
 import cn.edu.shu.xj.ser.entity.Activity;
 import cn.edu.shu.xj.ser.entity.Ass;
+import cn.edu.shu.xj.ser.entity.LeaderActivity;
+import cn.edu.shu.xj.ser.entity.User;
 import cn.edu.shu.xj.ser.handler.BusinessException;
 import cn.edu.shu.xj.ser.mapper.ActivityMapper;
 import cn.edu.shu.xj.ser.response.Result;
@@ -9,6 +11,7 @@ import cn.edu.shu.xj.ser.response.ResultCode;
 import cn.edu.shu.xj.ser.service.impl.ActivityService;
 import cn.edu.shu.xj.ser.service.impl.AssActivityService;
 import cn.edu.shu.xj.ser.service.impl.LeaderActivityService;
+import cn.edu.shu.xj.ser.service.impl.UserService;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,6 +33,9 @@ public class ActivityController {
 
     @Autowired
     AssActivityService assActivityService;
+
+    @Autowired
+    UserService userService;
 
     @Autowired
     LeaderActivityService leaderActivityService;
@@ -107,7 +113,56 @@ public class ActivityController {
         return Result.ok().data("total",Total).data("activities",activities);
     }
 
+    @ApiOperation(value = "审批同意活动")
+    @PostMapping("/agreeActivity")
+    public Result agreeActivity(@RequestParam(required = true)Long activityId){
 
+        activityService.passActivity(activityId);
+        assActivityService.passActivity(activityId);
+        return Result.ok();
+    }
+
+    @ApiOperation(value = "审批拒绝活动//或删除活动")
+    @PostMapping("/notAgreeActivity")
+    public Result notAgreeActivity(@RequestParam(required = true)Long activityId){
+
+        activityService.notpassActivity(activityId);
+        assActivityService.notpassActivity(activityId);
+        return Result.ok();
+    }
+
+    @ApiOperation(value = "活动报名截至")
+    @PostMapping("/endActivityApply")
+    public Result endActivityApply(@RequestParam(required = true)Long activityId){
+        // 转变状态至“报名结束”
+        activityService.endActivityApply(activityId);
+        return Result.ok();
+    }
+
+    @ApiOperation(value = "添加活动后期结语与图片")
+    @PostMapping("/addEndActivity")
+    public Result addEndActivity(@RequestParam(required = true)Long activityId,
+                                 @RequestParam(required = true)String activityEndContent,
+                                 @RequestParam(required = true)String imageUrl){
+        // 添加后期活动结语与图片
+        activityService.addEndContent(activityId,activityEndContent,imageUrl);
+        // 转变状态 至“活动结束”
+        activityService.endActivity(activityId);
+        // 对所有社员和社长 积分
+        Activity activity = activityService.getActivityByActivityId(activityId);
+        Integer score = activity.getActivityScore();
+        // 社员加分
+        List<User> userList = userService.getUserByActivityId(activityId);
+        for (int i=0;i<=userList.size()-1;i++){
+            userService.addScore(userList.get(i).getUserId(),score);
+        }
+        // 社长加分
+        LeaderActivity leaderActivity = leaderActivityService.getleaderActivityByActivityId(activityId);
+        Long leaderId = leaderActivity.getUserId();
+        userService.addScore(leaderId,score);
+
+        return Result.ok();
+    }
 
 
 }

@@ -20,6 +20,30 @@
         insert into activity(activity_sub,activity_content,activity_url,activity_start_time,activity_finish_time,activity_state,activity_score,activity_leader_name)
         VALUES (#{activitySub},#{activityContent},#{imageUrl},#{activityStartTime},#{activityFinishTime},"审核中",#{activityScore},#{userTrueName})
     </insert>
+    <update id="addEndContent">
+        update activity
+        set activity_end_content=#{activityEndContent} , activity_end_url=#{imageUrl}
+        where activity_id=#{activityId}
+    </update>
+    <update id="passActivity">
+        update activity
+        set activity_state="报名中"
+        where activity_id =#{activityId}
+    </update>
+    <update id="endActivityApply">
+        update activity
+        set activity_state="报名结束"
+        where activity_id =#{activityId}
+    </update>
+    <update id="endActivity">
+        update activity
+        set activity_state="活动结束"
+        where activity_id =#{activityId}
+    </update>
+    <delete id="notpassActivity">
+        delete from activity
+        where activity_id=#{activityId}
+    </delete>
 
     <select id="countActivityById" resultType="java.lang.Integer">
         select count(*)
@@ -61,7 +85,11 @@
         where ac.activity_id = aa.activity_id and ass.ass_id = aa.ass_id and ass.ass_name LIKE "%"#{assName}"%" and  ac.activity_state LIKE "%"#{activityState}"%"
         LIMIT #{Myvalue},#{size}
     </select>
-
+    <select id="getActivityByActivityId" resultType="cn.edu.shu.xj.ser.entity.Activity">
+        select *
+        from activity
+        where activity_id=#{activityId}
+    </select>
 
 
 </mapper>

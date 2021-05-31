@@ -20,4 +20,9 @@ public class LeaderActivityService extends ServiceImpl<LeaderActivityMapper, Lea
     public void addNewLeaderActivity(Long userId, Long activityId) {
         leaderActivityMapper.addNewLeaderActivity(userId, activityId);
     }
+
+    @Override
+    public LeaderActivity getleaderActivityByActivityId(Long activityId) {
+        return leaderActivityMapper.getleaderActivityByActivityId(activityId);
+    }
 }

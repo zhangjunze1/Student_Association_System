@@ -21,6 +21,12 @@
         insert into user(user_name,user_true_name,user_pwd,user_authority,user_score,user_number,user_gender,user_position,user_phone)
         values(#{userName},#{userTrueName},#{userPwd},#{userAuthority},#{userScore},#{userNumber},#{userGender},#{userPosition},#{userPhone})
     </insert>
+    <update id="addScore">
+        update user
+        set user_score =user_score+#{score}
+        where user_id =#{userId}
+    </update>
+
     <update id="editUserMessage">
         update user set user_name = #{name}, user_pwd = #{pwd},user_gender = #{gender} ,user_signature = #{signature}, user_phone = #{phone}
         where user_id = #{userId}
@@ -117,6 +123,18 @@
         select *
         from user
         where user_true_name = #{userTrueName}
+    </select>
+
+    <select id="getPartMemberByActivityId" resultType="cn.edu.shu.xj.ser.entity.User">
+        select *
+        from user, user_activity
+        where user.user_id = user_activity.user_id and user_activity.activity_id = #{activityId}
+        LIMIT #{Myvalue},#{size}
+    </select>
+    <select id="getUserByActivityId" resultType="cn.edu.shu.xj.ser.entity.User">
+        select *
+        from user ,user_activity
+        where user.user_id = user_activity.user_id and user_activity.activity_id = #{activityId} and user_activity.user_activity_state="已通过"
     </select>
 
 

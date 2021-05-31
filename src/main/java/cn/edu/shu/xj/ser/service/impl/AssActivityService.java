@@ -25,4 +25,14 @@ public class AssActivityService extends ServiceImpl<AssActivityMapper, AssActivi
     public void deleteAssByAssId(Long assId) {
         assActivityMapper.deleteAssByAssId(assId);
     }
+
+    @Override
+    public void passActivity(Long activityId) {
+        assActivityMapper.passActivity(activityId);
+    }
+
+    @Override
+    public void notpassActivity(Long activityId) {
+        assActivityMapper.notpassActivity(activityId);
+    }
 }

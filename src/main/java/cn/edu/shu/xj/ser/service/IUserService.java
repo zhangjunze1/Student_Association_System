@@ -154,4 +154,27 @@ public interface IUserService extends IService<User> {
      * @param userId
      */
     void deleteUser(Long userId);
+
+    /**
+     * 获取活动的用户列表
+     * @param activityId
+     * @return
+     */
+    List<User> getUserByActivityId(Long activityId);
+
+    /**
+     * 获取某活动对应参与的成员
+     * @param Myvalue
+     * @param size
+     * @param activityId
+     * @return
+     */
+    List<User> getPartMemberByActivityId(Integer Myvalue,Integer size,Long activityId);
+
+    /**
+     * 增加分值
+     * @param userId
+     * @param score
+     */
+    void addScore(Long userId,Integer score);
 }

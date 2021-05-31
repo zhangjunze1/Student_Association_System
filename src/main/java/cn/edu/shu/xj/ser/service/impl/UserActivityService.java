@@ -21,4 +21,29 @@ public class UserActivityService extends ServiceImpl<UserActivityMapper, UserAct
     public void deleteAllByUserId(Long userId) {
         userActivityMapper.deleteAllByUserId(userId);
     }
+
+    @Override
+    public Integer countPartMemberByActivityId(Long activityId) {
+        return userActivityMapper.countPartMemberByActivityId(activityId);
+    }
+
+    @Override
+    public UserActivity findUserActivity(Long activityId, Long userId) {
+        return userActivityMapper.findUserActivity(activityId, userId);
+    }
+
+    @Override
+    public void addNewUserActivity(Long activityId, Long userId) {
+        userActivityMapper.addNewUserActivity(activityId, userId);
+    }
+
+    @Override
+    public void agreeUserActivity(Long activityId, Long userId) {
+        userActivityMapper.agreeUserActivity(activityId, userId);
+    }
+
+    @Override
+    public void notagreeUserActivity(Long activityId, Long userId) {
+        userActivityMapper.notagreeUserActivity(activityId, userId);
+    }
 }

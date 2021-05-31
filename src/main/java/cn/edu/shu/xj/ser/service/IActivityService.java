@@ -75,5 +75,42 @@ public interface IActivityService extends IService<Activity> {
      */
     List<Activity> findApplyActivity(Integer Myvalue,Integer size,String assName,String activityState);
 
+    /**
+     * 审批通过活动
+     * @param activityId
+     */
+    void passActivity(Long activityId);
 
+    /**
+     * 审批拒绝活动
+     * @param activityId
+     */
+    void notpassActivity(Long activityId);
+
+    /**
+     * 活动报名截至
+     * @param activityId
+     */
+    void endActivityApply(Long activityId);
+
+    /**
+     * 活动结束
+     * @param activityId
+     */
+    void endActivity(Long activityId);
+
+    /**
+     * 活动后期结语
+     * @param activityId
+     * @param activityEndContent
+     * @param imageUrl
+     */
+    void addEndContent(Long activityId,String activityEndContent,String imageUrl);
+
+    /**
+     * 获取活动By活动ID
+     * @param activityId
+     * @return
+     */
+    Activity getActivityByActivityId(Long activityId);
 }

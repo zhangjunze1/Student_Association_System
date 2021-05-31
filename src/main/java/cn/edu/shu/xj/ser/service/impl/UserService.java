@@ -103,4 +103,20 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     public void deleteUser(Long userId) {
         userMapper.deleteUser(userId);
     }
+
+    @Override
+    public List<User> getUserByActivityId(Long activityId) {
+        return userMapper.getUserByActivityId(activityId);
+    }
+
+
+    @Override
+    public List<User> getPartMemberByActivityId(Integer Myvalue, Integer size, Long activityId) {
+        return userMapper.getPartMemberByActivityId(Myvalue, size, activityId);
+    }
+
+    @Override
+    public void addScore(Long userId, Integer score) {
+        userMapper.addScore(userId, score);
+    }
 }

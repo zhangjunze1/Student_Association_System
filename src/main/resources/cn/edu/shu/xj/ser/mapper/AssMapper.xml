@@ -26,6 +26,11 @@
         set ass_leader = #{userTrueName}
         where ass_id =#{assId}
     </update>
+    <update id="editNotice">
+        UPDATE ass
+        set ass_notice = #{notice}
+        where ass_id =#{assId}
+    </update>
     <delete id="notAgreeDeleteAss">
         delete FROM ass
         where ass_id = #{assId}

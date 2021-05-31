@@ -272,6 +272,15 @@ public class AssController {
         return Result.ok();
     }
 
+    @ApiOperation(value = "更改公告")
+    @PostMapping("/editAssNotice")
+    public Result editAssNotice(@RequestParam(required = true)Long assId,
+                                @RequestParam(required = true)String notice){
+        assService.editNotice(assId,notice);
+        return Result.ok();
+    }
+
+
 
 
 }

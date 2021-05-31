@@ -118,4 +118,11 @@ public interface IAssService  extends IService<Ass> {
      * @param assId
      */
     void deleteAss(Long assId);
+
+    /**
+     * 社团公告修改
+     * @param assId
+     * @param notice
+     */
+    void editNotice(Long assId,String notice);
 }

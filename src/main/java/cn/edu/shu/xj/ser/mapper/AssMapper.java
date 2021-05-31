@@ -40,4 +40,6 @@ public interface AssMapper extends BaseMapper<Ass> {
     void changeAssLeader(Long assId,String userTrueName);
 
     void deleteAss(Long assId);
+
+    void editNotice(Long assId,String notice);
 }

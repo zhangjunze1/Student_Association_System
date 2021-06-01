@@ -1,17 +1,11 @@
 package cn.edu.shu.xj.ser.controller.Activity;
 
-import cn.edu.shu.xj.ser.entity.Activity;
-import cn.edu.shu.xj.ser.entity.Ass;
-import cn.edu.shu.xj.ser.entity.LeaderActivity;
-import cn.edu.shu.xj.ser.entity.User;
+import cn.edu.shu.xj.ser.entity.*;
 import cn.edu.shu.xj.ser.handler.BusinessException;
 import cn.edu.shu.xj.ser.mapper.ActivityMapper;
 import cn.edu.shu.xj.ser.response.Result;
 import cn.edu.shu.xj.ser.response.ResultCode;
-import cn.edu.shu.xj.ser.service.impl.ActivityService;
-import cn.edu.shu.xj.ser.service.impl.AssActivityService;
-import cn.edu.shu.xj.ser.service.impl.LeaderActivityService;
-import cn.edu.shu.xj.ser.service.impl.UserService;
+import cn.edu.shu.xj.ser.service.impl.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,6 +33,9 @@ public class ActivityController {
 
     @Autowired
     LeaderActivityService leaderActivityService;
+
+    @Autowired
+    UserActivityService userActivityService;
 
     @ApiOperation(value = "根据社团查询对应活动")
     @GetMapping("/findAssActivityPage")
@@ -161,6 +158,20 @@ public class ActivityController {
         Long leaderId = leaderActivity.getUserId();
         userService.addScore(leaderId,score);
 
+        return Result.ok();
+    }
+
+    @ApiOperation(value = "活动删除")
+    @PostMapping("/deleteActivityByActivityId")
+    public Result deleteActivityByActivityId(@RequestParam(required = true)Long activityId){
+        // 活动社团链接表的删除
+        assActivityService.deleteAssByActivityId(activityId);
+        // 删除社长活动联结表的信息
+        leaderActivityService.deleteleaderActivity(activityId);
+        // 删除社员活动联结表信息
+        userActivityService.deleteUserActivity(activityId);
+        // 删除活动
+        activityService.deleteActivity(activityId);
         return Result.ok();
     }
 

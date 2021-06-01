@@ -84,5 +84,10 @@ public class ActivityService extends ServiceImpl<ActivityMapper, Activity> imple
         return activityMapper.getActivityByActivityId(activityId);
     }
 
+    @Override
+    public void deleteActivity(Long activityId) {
+        activityMapper.deleteActivity(activityId);
+    }
+
 
 }

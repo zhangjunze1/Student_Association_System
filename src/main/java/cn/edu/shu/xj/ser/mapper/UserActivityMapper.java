@@ -19,4 +19,6 @@ public interface UserActivityMapper extends BaseMapper<UserActivity> {
     void agreeUserActivity(Long activityId,Long userId);
 
     void notagreeUserActivity(Long activityId,Long userId);
+
+    void deleteUserActivity(Long activityId);
 }

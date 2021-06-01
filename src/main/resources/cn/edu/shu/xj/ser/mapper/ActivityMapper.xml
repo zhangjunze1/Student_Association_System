@@ -44,6 +44,10 @@
         delete from activity
         where activity_id=#{activityId}
     </delete>
+    <delete id="deleteActivity">
+        delete from activity
+        where activity_id=#{activityId}
+    </delete>
 
     <select id="countActivityById" resultType="java.lang.Integer">
         select count(*)

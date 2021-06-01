@@ -18,4 +18,10 @@ public interface ILeaderActivityService extends IService<LeaderActivity> {
      * @return
      */
     LeaderActivity getleaderActivityByActivityId(Long activityId);
+
+    /**
+     * 删除社长活动联结表
+     * @param activityId
+     */
+    void deleteleaderActivity(Long activityId);
 }

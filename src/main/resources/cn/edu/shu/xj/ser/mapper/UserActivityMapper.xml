@@ -25,6 +25,10 @@
         delete from user_activity
         where activity_id=#{activityId} and user_id =#{userId}
     </delete>
+    <delete id="deleteUserActivity">
+        delete from user_activity
+        where activity_id=#{activityId}
+    </delete>
 
     <select id="countPartMemberByActivityId" resultType="java.lang.Integer">
         select count(*)

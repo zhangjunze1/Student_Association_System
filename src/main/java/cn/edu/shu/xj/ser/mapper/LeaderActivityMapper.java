@@ -11,4 +11,7 @@ public interface LeaderActivityMapper extends BaseMapper<LeaderActivity> {
     void addNewLeaderActivity(Long userId,Long activityId);
 
     LeaderActivity getleaderActivityByActivityId(Long activityId);
+
+    void deleteleaderActivity(Long activityId);
+
 }

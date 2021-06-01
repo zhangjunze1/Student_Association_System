@@ -46,4 +46,10 @@ public interface IUserActivityService extends IService<UserActivity> {
      * @param userId
      */
     void notagreeUserActivity(Long activityId,Long userId);
+
+    /**
+     * 删除用户活动信息
+     * @param activityId
+     */
+    void deleteUserActivity(Long activityId);
 }

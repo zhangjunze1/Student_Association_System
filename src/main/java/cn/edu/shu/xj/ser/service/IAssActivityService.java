@@ -30,4 +30,9 @@ public interface IAssActivityService extends IService<AssActivity> {
      */
     void notpassActivity(Long activityId);
 
+    /**
+     * 活动社团联结表的删除
+     * @param activityId
+     */
+    void deleteAssByActivityId(Long activityId);
 }

@@ -37,5 +37,8 @@ public interface ActivityMapper extends BaseMapper<Activity> {
 
     void addEndContent(Long activityId,String activityEndContent,String imageUrl);
 
+    void deleteActivity(Long activityId);
+
+
 
 }

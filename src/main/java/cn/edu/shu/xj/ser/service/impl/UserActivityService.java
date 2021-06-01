@@ -46,4 +46,9 @@ public class UserActivityService extends ServiceImpl<UserActivityMapper, UserAct
     public void notagreeUserActivity(Long activityId, Long userId) {
         userActivityMapper.notagreeUserActivity(activityId, userId);
     }
+
+    @Override
+    public void deleteUserActivity(Long activityId) {
+        userActivityMapper.deleteUserActivity(activityId);
+    }
 }

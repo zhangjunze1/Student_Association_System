@@ -26,6 +26,10 @@
         delete from ass_activity
         where activity_id=#{activityId}
     </delete>
+    <delete id="deleteAssByActivityId">
+        delete from ass_activity
+        where activity_id=#{activityId}
+    </delete>
 
 
 </mapper>

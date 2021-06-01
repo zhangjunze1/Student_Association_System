@@ -11,6 +11,10 @@
         insert into leader_activity(user_id,activity_id)
         values (#{userId},#{activityId})
     </insert>
+    <delete id="deleteleaderActivity">
+        delete from leader_activity
+        where activity_id=#{activityId}
+    </delete>
     <select id="getleaderActivityByActivityId" resultType="cn.edu.shu.xj.ser.entity.LeaderActivity">
         select *
         from leader_activity

@@ -113,4 +113,10 @@ public interface IActivityService extends IService<Activity> {
      * @return
      */
     Activity getActivityByActivityId(Long activityId);
+
+    /**
+     * 删除活动
+     * @param activityId
+     */
+    void deleteActivity(Long activityId);
 }

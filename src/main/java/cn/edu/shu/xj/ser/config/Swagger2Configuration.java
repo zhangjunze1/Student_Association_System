@@ -19,14 +19,14 @@ public class Swagger2Configuration {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("cn.edu.shu.xj.ser"))
+                .apis(RequestHandlerSelectors.basePackage("cn.edu.shu.xj.ser.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("模板系统")
+                .title("学生社团管理系统")
                 .description("系统API")
 //                .termsOfServiceUrl("/")
                 .version("1.0")

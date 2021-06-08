@@ -28,6 +28,7 @@ public class Swagger2Configuration {
         return new ApiInfoBuilder()
                 .title("学生社团管理系统")
                 .description("系统API")
+                .contact("412057605@qq.com")
 //                .termsOfServiceUrl("/")
                 .version("1.0")
                 .build();

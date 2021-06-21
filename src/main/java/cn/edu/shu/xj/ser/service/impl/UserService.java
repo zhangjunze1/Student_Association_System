@@ -116,6 +116,9 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     }
 
     @Override
+    public List<User> getUserRank() { return userMapper.getUserRank(); }
+
+    @Override
     public void addScore(Long userId, Integer score) {
         userMapper.addScore(userId, score);
     }

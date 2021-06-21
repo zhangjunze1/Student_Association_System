@@ -177,4 +177,9 @@ public interface IUserService extends IService<User> {
      * @param score
      */
     void addScore(Long userId,Integer score);
+
+    /**
+     * 查询分值排行榜
+     */
+    List<User> getUserRank();
 }

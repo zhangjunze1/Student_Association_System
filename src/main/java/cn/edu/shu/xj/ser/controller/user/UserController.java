@@ -170,12 +170,18 @@ public class UserController {
     @ApiOperation(value = "获取某活动对应的参加社员")
     @GetMapping("/findActivityMembers")
     public Result findActivityMembers(@RequestParam(required = true,defaultValue = "1")Integer current,
-                                @RequestParam(required = true,defaultValue = "10")Integer size,
-                                @RequestParam(required = true)Long activityId){
+                                      @RequestParam(required = true,defaultValue = "10")Integer size,
+                                      @RequestParam(required = true)Long activityId){
         Integer Myvalue =  (current-1)*size;
         Integer Total = userActivityService.countPartMemberByActivityId(activityId);
         List<User> userList = userService.getPartMemberByActivityId(Myvalue,size,activityId);
         return Result.ok().data("userList",userList).data("total",Total);
     }
 
+    @ApiOperation(value = "查询得分rank")
+    @GetMapping("/rank")
+    public Result getUserRank(){
+        List<User> ranklist = userService.getUserRank();
+        return Result.ok().data("rank",ranklist);
+    }
 }

@@ -136,6 +136,12 @@
         from user ,user_activity
         where user.user_id = user_activity.user_id and user_activity.activity_id = #{activityId} and user_activity.user_activity_state="已通过"
     </select>
+    <select id="getUserRank" resultType="cn.edu.shu.xj.ser.entity.User">
+        select user_name, user_score, user_signature
+        from user
+        order by user_score desc, user_name asc
+        limit 7
+    </select>
 
 
 </mapper>

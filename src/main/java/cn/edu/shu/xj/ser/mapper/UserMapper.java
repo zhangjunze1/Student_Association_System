@@ -49,4 +49,6 @@ public interface UserMapper extends BaseMapper<User> {
     List<User> getPartMemberByActivityId(Integer Myvalue,Integer size,Long activityId);
 
     void addScore(Long userId,Integer score);
+
+    List<User> getUserRank();
 }

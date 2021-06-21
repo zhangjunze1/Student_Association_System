@@ -9,6 +9,12 @@
         <result column="ass_activity_state" property="assActivityState"/>
     </resultMap>
 
+    <resultMap id="AssActStatisticsResultMap" type="cn.edu.shu.xj.ser.entity.AssActStatistics">
+        <result column="ass_name" property="assName"/>
+        <result column="state" property="state"/>
+        <result column="cnt" property="cnt"/>
+    </resultMap>
+
     <insert id="addNewAssActivity">
         insert into ass_activity(activity_id,ass_id,ass_activity_state)
         values (#{activityId},#{assId},"申请中")
@@ -30,6 +36,14 @@
         delete from ass_activity
         where activity_id=#{activityId}
     </delete>
+    <select id="statisticAssAct" resultType="cn.edu.shu.xj.ser.entity.AssActStatistics">
+        select ass_name, ifnull(activity_state, '不存在') state, count(activity_state) cnt
+        from ass left join
+            ass_activity aa join activity a on aa.activity_id = a.activity_id
+                on ass.ass_id = aa.ass_id
+        group by ass_name, activity_state
+        order by ass_name desc , activity_state
+    </select>
 
 
 </mapper>

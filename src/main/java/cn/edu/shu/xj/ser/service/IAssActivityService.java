@@ -1,7 +1,10 @@
 package cn.edu.shu.xj.ser.service;
 
+import cn.edu.shu.xj.ser.entity.AssActStatistics;
 import cn.edu.shu.xj.ser.entity.AssActivity;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 public interface IAssActivityService extends IService<AssActivity> {
 
@@ -35,4 +38,9 @@ public interface IAssActivityService extends IService<AssActivity> {
      * @param activityId
      */
     void deleteAssByActivityId(Long activityId);
+
+    /**
+     * 统计各个社团  各个状态下 的活动数量
+     */
+    List<AssActStatistics> statisticAssAct();
 }

@@ -31,10 +31,7 @@ public class oss {
     String accessKeyId = "LTAI5tBji2779oNNiitohXS7";
     String accessKeySecret = "UOM079PXLVttYZCeLTuKaUq5hRXT2w";
     String bucketName = "zhangjz-tgam-example";
-//    String endpoint = "oss-cn-beijing.aliyuncs.com";
-//    String accessKeyId = "LTAI4Fzpso7g5BD4acngSXGA";
-//    String accessKeySecret = "ABi1Mz2Xh4NVU4pT8TOPJncaAqJdVW";
-//    String bucketName = "rdcj";
+
     String subPath = "test/";
     String activityPath = "activity/";
     String carPath = "car/";
@@ -42,9 +39,7 @@ public class oss {
     String picture_name = "";
     long business_id;
     long shangping_id;
-//
-//    @Autowired
-//    ICarService carService;
+
 
     @Autowired
     IUserService userService;

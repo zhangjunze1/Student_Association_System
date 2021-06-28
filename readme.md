@@ -30,4 +30,18 @@ swagger2+knife4j： http://localhost:8085/doc.html
 6. 系统公告查看
 #### 登录、注册功能
 
-
+### 运行提示
+1. cn.edu.shu.xj.ser.config.oss
+```javascript
+    String endpoint = "............";
+    String accessKeyId = "............";
+    String accessKeySecret = "............";
+    String bucketName = "............";
+```
+此类中，所属的阿里云的Oss的参数填上自己的（前端有上传图片到阿里云oss的功能）
+2. 在application.properties中
++ 运用自己的数据库运行账号密码运行
+3. 对应数据库的sql文件 在resources目录下system.sql
++ 管理员 账号：31801087 密码：123123
++ 其中一个社长 账号：123123 密码：123123 （其余用户密码详见数据库）
++ 还有用户（其余用户密码详见数据库）

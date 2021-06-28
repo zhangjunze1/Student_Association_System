@@ -27,10 +27,10 @@ import java.util.Random;
 @Service
 @RequestMapping("/oss")
 public class oss {
-    String endpoint = "oss-cn-hangzhou.aliyuncs.com";
-    String accessKeyId = "LTAI5tBji2779oNNiitohXS7";
-    String accessKeySecret = "UOM079PXLVttYZCeLTuKaUq5hRXT2w";
-    String bucketName = "zhangjz-tgam-example";
+    String endpoint = "*****************";
+    String accessKeyId = "****************";
+    String accessKeySecret = "************";
+    String bucketName = "****************";
 
     String subPath = "test/";
     String activityPath = "activity/";
